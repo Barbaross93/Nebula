@@ -467,7 +467,7 @@ workspaces = [
     },
     {"name": "", "key": "3", "matches": []},
     {"name": "", "key": "4", "matches": [Match(wm_class="emacs")]},
-    {"name": "", "key": "5", "matches": []},
+    {"name": "", "key": "5", "matches": []},
     {"name": "", "key": "6", "matches": [Match(wm_class="slack")]},
     {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
     {"name": "", "key": "8", "matches": [Match(wm_class="zoom")]},
@@ -684,7 +684,7 @@ screens = [
                 ),
                 widget.GroupBox(
                     font="Font Awesome 5 Free Solid",
-                    visible_groups=["", "", "", "", ""],
+                    visible_groups=["", "", "", "", ""],
                     **group_box_settings,
                 ),
                 widget.GroupBox(
