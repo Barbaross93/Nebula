@@ -3,7 +3,7 @@ Dotfiles for the Genome setup
 
 Here you can find the dotfiles for my latest setup. Feel free to create an issue if I'm missing something
 
-<img src="https://raw.githubusercontent.com/Barbarossa93/Genome/main/out.png" alt="img" align="right" width="900px">
+<img src="https://raw.githubusercontent.com/Barbarossa93/Genome/main/out.png" alt="img" align="center" width="900px">
 
 ## Info
 - OS: Arch
@@ -18,4 +18,5 @@ Here you can find the dotfiles for my latest setup. Feel free to create an issue
 - Chat: Discord styled with [discocss](https://github.com/mlvzk/discocss)
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
+- Compositor: Jonaburg's fork of [Picom](https://github.com/jonaburg/picom)
 - Colorscheme: [Nord](https://www.nordtheme.com/)
