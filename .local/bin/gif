@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if pgrep -f giph &>/dev/null; then
+	giph --stop &>/dev/null
+	notify-send --app-name "giph" -u normal "Stopping gif recording..."
+else
+	notify-send --app-name "giph" -u normal "Select region to record"
+	setsid -f giph -s -y ~/Pictures/Gifs/Recordings/$(date +%s).gif &>/dev/null
+fi

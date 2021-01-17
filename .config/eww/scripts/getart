@@ -1,0 +1,37 @@
+#!/bin/bash
+tmp_dir="/tmp/spotify"
+tmp_cover_path=$tmp_dir/cover.png
+
+if [ ! -d $tmp_dir ]; then
+	mkdir -p $tmp_dir
+fi
+
+cp ~/.config/eww/images/image.png $tmp_cover_path;
+
+stdbuf -o0 playerctl  metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g' |
+	while read arturl; do
+		if [ -n "$arturl" ]; then
+			curl -s "$arturl" --output $tmp_cover_path;
+		else
+			cp ~/.config/eww/images/image.png $tmp_cover_path;
+		fi
+	done
+
+#upd_art () {
+#	if [ $(playerctl metadata mpris:artUrl) ]; then
+#		curl -s "$current_artlink" --output $tmp_cover_path;
+#	else
+#		cp ~/.config/eww/images/image.png $tmp_cover_path;
+#	fi
+#}
+
+#declare -t current_artlink
+#trap 'upd_art $current_artlink' DEBUG
+
+#while true; do
+#	artlink="$(playerctl metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
+#	if [ "$artlink" != "$current_artlink" ]; then
+#		current_artlink="$artlink"
+#	fi
+#	sleep 5
+#done	

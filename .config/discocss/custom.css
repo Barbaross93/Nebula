@@ -1,0 +1,299 @@
+:root {
+  -moz-tab-size: 2;
+
+  --red: #bf616a;
+  --purple: #b48ead;
+  --blue: #81a1c1;
+  --green: #a3be8c;
+  --aqua: #8fbcbb;
+  --yellow: #ebcb8b;
+  --border1: #434c5e;
+  --border2: #4c566a;
+
+  /*  ----  */
+  --bg1: #2e3440;
+  --bg2: #232831;
+  --bg3: #3b4252;
+  --button: #b48ead1a;
+  /*  ----  */
+  --fg2: #d8dee9;
+  --fg1: #eceff4;
+  --disabled: #4c566a;
+  /*  ----  */
+  --accent: var(--aqua);
+  --accent2: #88c0d0;
+  --contrast: #ffffff;
+  /*  ----  */
+}
+
+.theme-dark {
+  --header-primary: var(--fg1);
+  --header-secondary: var(--fg2);
+  --text-normal: var(--fg1);
+  --text-muted: var(--fg2);
+  --text-link: var(--accent);
+  --channels-default: var(--fg2);
+  --interactive-normal: var(--fg2);
+  --interactive-hover: var(--fg1);
+  --interactive-active: var(--fg1);
+  --interactive-muted: var(--fg2);
+  --background-primary: var(--bg1);
+  --background-secondary: var(--bg2);
+  --background-secondary-alt: var(--bg1);
+  --background-tertiary: var(--bg1);
+  --background-accent: var(--accent);
+  --background-floating: var(--bg1);
+  --background-modifier-hover: rgba(79, 84, 92, 0.16);
+  --background-modifier-active: rgba(79, 84, 92, 0.24);
+  /*--background-modifier-accent: hsla(0, 0%, 100%, 0.06);*/
+  --background-modifier-accent: rgba(0, 0, 0, 0);
+  --elevation-high: 0 8px 16px rgba(0, 0, 0, 0.24);
+  --guild-header-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  --channeltextarea-background: var(--bg1);
+  --activity-card-background: var(--bg2);
+  --deprecated-panel-background: var(--bg3);
+  --background-modifier-selected: var(--bg1);
+  --elevation-low: none !important;
+  --background-message-hover: var(--bg2) !important;
+}
+
+* {
+  font-family: "FiraCode Nerd Font" !important;
+  font-weight: normal !important;
+  font-size: 18 !important;
+}
+
+
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-handle,
+::-webkit-scrollbar-track-piece {
+  border-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* general */
+[class*="colorBrand"] {
+  color: var(--accent);
+}
+
+[class*="colorDanger"] {
+  color: var(--red);
+}
+
+[class*="lookBlank"] {
+  color: var(--fg2);
+}
+
+[class*="input"]:focus {
+    border-color: var(--accent);
+}
+
+/* sections */
+
+[id*="popout"] [class*="container"] {
+  background-color: var(--bg1);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.4);
+  color: var(--fg1) !important;
+}
+[id*="popout"] [class*="container"] ::after {
+  background-image: none !important;
+}
+
+[class*="live"][class*="textBadge"] {
+  background-color: var(--red) !important;
+  color: var(--fg1);
+}
+
+[class*="navButtonActive"] {
+    background-color: unset;
+    color: var(--fg1);
+}
+
+[class*="option"][class*="selected"] {
+  background-color: var(--bg2) !important;
+}
+
+[class*="resultsGroup"] * {
+  color: var(--fg2) !important;
+}
+[class*="resultsGroup"] [class*="filter"] {
+  color: var(--fg1) !important;
+}
+[class*="resultsGroup"] [class*="header"] {
+  color: var(--fg1) !important;
+}
+
+[class*="peopleColumn"] {
+  background-color: var(--bg2);
+}
+
+[class*="section"] {
+  background-color: var(--bg3);
+}
+[class*="sidebar"] [class*="container"] [class*="header"] {
+  background-color: var(--bg1) !important;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+[class*="sidebar"] > [class*="container"],
+[class*="members"][class*="scroller"] {
+  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+[class*="scrollerWrap"] {
+  border-radius: 10px !important;
+}
+
+[class*="membersWrap"] {
+  /*border-top-left-radius: 15px;*/
+  overflow: hidden;
+}
+
+/* message input area */
+
+[class*="chatContent"] [class*="form"] {
+  padding-top: 0.5rem;
+  background-color: var(--bg1);
+  box-shadow: 0 -30px 20px -30px rgba(0, 0, 0, 0.3);
+}
+
+[class*="textAreaSlate"] {
+  background-color: var(--bg3);
+  border-radius: 13px;
+  color: var(--fg-2);
+  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+[class*="textAreaSlate"] > * {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[class*="userPopout"] [class*="body"],
+[class*="userPopout"] [class*="footer"]{
+    background-color: var(--bg1);
+}
+[class*="userPopout"] [class*="headerNormal"] {
+    background-color: var(--bg2);
+}
+
+[class*="headerPlaying"] * {
+    background-color: var(--accent) !important;
+}
+
+
+/* components */
+
+button[class*="lookFilled"] {
+  background-color: var(--button) !important;
+}
+button[class*="buttonActive"][class*="lookFilled"] {
+  background-color: var(--accent) !important;
+  color: var(--bg1) !important;
+}
+
+button[class*="lookLink"] {
+  color: var(--fg1) !important;
+}
+
+[class*="sprite"] {
+  filter: brightness(80%) sepia(80%) saturate(60%) !important;
+}
+[class*="username"] {
+  filter: sepia(30%) !important;
+  transition: filter 0.2s;
+}
+[class*="username"]:hover {
+  filter: sepia(20%) !important;
+}
+
+[class*="newMessagesBar-"] {
+  background-color: var(--accent);
+  opacity: 1;
+}
+[class*="newMessagesBar-"] button {
+  color: var(--bg1) !important;
+}
+
+img[class*="avatar"] {
+  filter: sepia(30%) !important;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: filter 0.1s, transform 0.1s ease-in-out;
+}
+img[class*="avatar"]:hover {
+  filter: sepia(0%) !important;
+  transform: scale(1.05);
+}
+
+[class*="pictureInPictureWindow"] {
+  box-shadow: 0 8px 15px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+[class*="divider"] {
+  border-color: var(--bg3);
+}
+[class*="divider"][class*="isUnread"] {
+  border-color: var(--red) !important;
+}
+
+[class*="unreadPill-"] {
+  background-color: var(--red);
+}
+
+[class*="unreadPillCap"] {
+  fill: var(--red);
+}
+button[class*="lookFilled"] {
+  color: var(--fg1) !important;
+}
+
+[class*="live"][class*="textBadge"] {
+  background-color: var(--red) !important;
+  color: var(--fg1);
+}
+
+[class*="modal"] [class*="queryContainer-"],
+[class*="modal"] [class*="resultsGroup-"],
+[class*="modal"] [class*="bodyInner-"],
+[class*="modal"] [class*="quickMessage-"],
+[class*="modal"] [class*="inner-"],
+[class*="modal"] [class*="header-"]:not(header):not(h2),
+[class*="modal"] [class*="uploadModal-"],
+[role*="dialog"] form  {
+  background-color: var(--bg1) !important;
+}
+
+[role*="dialog"] form [class*="footer"]{
+    background-color: var(--bg2);
+}
+
+[class*="modal"] [class*="sourceScroller"],
+[class*="modal"] [class*="segmentContainer-"] [class*="segmentControl"] /*go live source selector header bar*/ {
+  background-color: var(--bg3) !important;
+}
+[class*="modal"] [class*="header"] {
+  padding-top: unset;
+  padding: 0.4rem;
+}
+
+[class*="modal"] [class*="footer-"] {
+  background-color: var(--bg3) !important;
+  filter: brightness(110%);
+}
+
+[class*="panels"] > *:nth-child(2) {
+  height: 4.6rem;
+  padding-bottom: 0.5rem;
+}
+
+div[class*="chat"] div[class*="root"] {
+  background-color: var(--bg1);
+}
+
+div[class*="rtcConnectionStatus"] *,
+[class*="circleIconButton"] {
+  color: var(--accent) !important;
+}
+

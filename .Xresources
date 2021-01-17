@@ -1,0 +1,122 @@
+Xcursor.theme: capitaine-cursors
+Xcursor.size: 48
+
+!Xft.dpi:                        161
+Xft.antialias:                  1
+Xft.autohint:                   0
+Xft.hinting:                    true
+Xft.hintstyle:                  hintslight
+Xft.rgba:                       rgb
+Xft.lcdfilter:                  lcddefault
+
+#define FONT FiraCode Nerd Font Mono
+#define ICON Font Awesome 5 Free Solid
+#define EMOJI Symbola
+#define NERD_FONT Font Awesome 5 Brands
+#define FONT_SIZE 9
+#define ICON_SIZE 9
+#define EMOJI_SIZE 9
+#define NERD_SIZE 9
+URxvt.font: xft:FONT:style=Medium:size=FONT_SIZE:antialias=true, xft:ICON:size=ICON_SIZE:antialias=true, xft:NERD_FONT:size=NERD_SIZE:antialias=true, xft:EMOJI:size=EMOJI_SIZE:antialias=true
+URxvt.boldFont: xft:FONT:style=Bold:size=FONT_SIZE:antialias=true, xft:ICON:size=ICON_SIZE:antialias=true, xft:NERD_FONT:size=NERD_SIZE:antialias=true, xft:EMOJI:size=EMOJI_SIZE:antialias=true
+URxvt.italicFont: xft:FONT:style=Italic:size=FONT_SIZE:antialias=true, xft:ICON:size=ICON_SIZE:antialias=true, xft:NERD_FONT:size=NERD_SIZE:antialias=true, xft:EMOJI:size=EMOJI_SIZE:antialias=true
+URxvt.boldItalicFont: xft:FONT:style=Bold Italic:size=FONT_SIZE:antialias=true, xft:ICON:size=ICON_SIZE:antialias=true, xft:NERD_FONT:size=NERD_SIZE:antialias=true, xft:EMOJI:size=EMOJI_SIZE:antialias=true
+
+!Colors
+#include "/home/barbarossa/Public/neat-things/colorschemes/nord-xresources/src/nord"
+!*.font: xft:FiraCode Nerd Font Mono:style=Medium:size=14:antialias=true
+
+URxvt.depth:                    32
+URxvt*lineSpace:                0
+URxvt*letterSpace:		        -1
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 184x44
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           88
+
+URxvt.perl-ext:	 		        default,matcher,vtwheel,resize-font
+URxvt.url-launcher:             linkhandler
+URxvt.matcher.button: 		    1
+URxvt.keysym.M-r:    		    perl:matcher:last
+URxvt.keysym.M-l:   		    perl:matcher:list
+URxvt.keysym.M-e:		        perl:matcher:select
+URxvt.saveLine:			        10000
+URxvt.cursorBlink: 		        true
+URxvt.cursorUnderline: 		    true
+
+URxvt*inheritPixmap:    	    false
+URxvt*transparent:      	    false
+
+! do not scroll with output
+URxvt*scrollTtyOutput:          false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer:         true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress:        true
+
+! Resize font keybindings
+URxvt.keysym.C-minus:           resize-font:smaller
+URxvt.keysym.C-plus:            resize-font:bigger
+URxvt.keysym.C-equal:           resize-font:reset
+URxvt.keysym.C-question:        resize-font:show
+URxvt.resize-font.step:         0.5
+
+! scroll by single line
+URxvt.keysym.Shift-Up:          command:\033]720;1\007
+URxvt.keysym.Shift-Down:        command:\033]721;1\007
+
+! Helps with man/less/pagers
+URxvt.secondaryScreen:          1
+URxvt.secondaryScroll:          0
+
+! Change keybinding for copying/pasting
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+
+! xterm settings
+
+xterm.vt100.termName: xterm-256color
+xterm.vt100.scaleHeight: 1.0
+XTerm.vt100.geometry: 80x32
+xterm.vt100.internalBorder: 44
+xterm.vt100.borderWidth: 0
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+XTerm*savelines: 16384
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+!XTerm.vt100.metaSendsEscape: true
+
+xterm.vt100.utf8: true
+XTerm.vt100.locale: true
+xterm.vt100.scrollBar: false
+xterm.vt100.cursorBlink: true
+!xterm.vt100.cursorUnderline: true
+xterm.vt100.selectToClipboard: true
+xterm.vt100.trimSelection: true
+xterm.vt100.renderFont: true
+xterm.vt100.wideChars: true
+xterm.vt100.visualBell: false
+xterm.vt100.forceBoxChars: true
+xterm.vt100.font-linedrawing: true
+*VT100*translations: #override Shift <Btn1Up>: exec-formatted("linkhandler '%t'", PRIMARY)
+
+
+xterm.vt100.translations: #override \n\
+    Shift Ctrl <KeyPress> v:insert-selection(CLIPBOARD) \n\
+    Shift Ctrl <KeyPress> c:select-set(CLIPBOARD)
+
+XTerm*faceSize: 10
+xterm.vt100.faceName: monospace
+!xterm.vt100.faceNameDoublesize: Symbola:antialias=true
+!xterm.vt100.wideFont: FiraCode Nerd Font Mono:size=9:antialias=true
+
+! stop output to terminal from jumping down to bottom of scroll again
+XTerm*scrollTtyOutput: false
+

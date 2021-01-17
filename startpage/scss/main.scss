@@ -1,0 +1,270 @@
+$background: #2e3440;
+$foreground: #e5e9f0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$media: #bf616a;
+$work: #d08770;
+$social: #ebcb8b;
+$others: #a3be8c;
+$funky: #b48ead;
+$purple: #8fbcbb;
+$upvoty: #88c0d0;
+$indigo: #81a1c1;
+$foxxy: #5e81ac;
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+// JetBrains Mono
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../fonts/woff/JetBrainsMono-Regular.woff") format("woff"),
+         url("../fonts/woff2/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+.jetbrains-mono {
+    font-family: 'JetBrains Mono';
+}
+
+body {
+    height: 97.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $background;
+    color: $foreground;
+    @extend .jetbrains-mono;
+}
+
+.main {
+    width: 100%;
+    text-align: center;
+
+    #date {
+        h2 {
+            padding-top: 15px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    #date-text, #weather-text {
+        color: darken($foreground, 15);
+    }
+
+    #message-text {
+        font-size: 23px;
+    }
+
+    #search-bar {
+        width: 50%;
+        margin: 0 auto 50px auto;
+        height: 45px;
+        padding-top: 35px;
+        position: relative;
+        display: inline-block;
+
+
+        #search-bar-input {
+            height: 50px;
+            width: 100%;
+            background: lighten($background, 5);
+            box-shadow: none;
+            border: none;
+            text-align: center;
+            border-radius: 6px;
+            outline: none;
+            padding: 7px 14px;
+            font-size: 18px;
+            color: $foreground;
+            box-sizing: border-box;
+
+            &:focus {
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            }
+        }
+
+        .autocomplete-items-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            border-radius: 6px;
+            background: lighten($background, 5);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+            .autocomplete-item {
+                width: 100%;
+                background: lighten($background, 5);
+                box-shadow: none;
+                border: none;
+                text-align: center;
+                outline: none;
+                padding: 7px 14px;
+                font-size: 18px;
+                color: $foreground;
+                box-sizing: border-box;
+                z-index: -1;
+
+                &:hover {
+                    background: lighten($background, 10);
+                }
+            }
+
+            .autocomplete-active {
+                background: lighten($background, 8);
+            }
+        }
+
+        @media only screen and (max-width: 791px) {
+            width: 65%;
+        }
+    }
+
+    #other-content {
+        margin: 40px auto;
+        padding: 10px 0;
+
+        .sqr {
+            vertical-align: top;
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+            width: 170px;
+            background: lighten($background, 5);
+            padding: 15px 15px;
+            border-radius: 6px;
+            min-height: 150px;
+            margin-top: 10px;
+
+            h4 {
+                font-size: 18px;
+                margin: 15px;
+          }
+
+            &:hover {
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            }
+
+            a {
+                color: #4c566a;
+                font-size: 16px;
+                transition: .1s ease-in;
+                display: block;
+                text-decoration: none;
+                line-height: 22px;
+
+                &:hover {
+                    color: $foreground;
+                    text-decoration: none;
+                    transition: .1s ease-in;
+                }
+            }
+        }
+
+        .media {
+            h4, a:hover {
+                color: $media;
+            }
+        }
+
+        .work {
+            h4, a:hover {
+                color: $work;
+            }
+        }
+
+        .social {
+            h4, a:hover {
+                color: $social;
+            }
+            
+        }
+
+        .others {
+            h4, a:hover {
+                color: $others;
+            }
+        }
+
+        .funky {
+            h4, a:hover {
+                color: $funky;
+            }
+        }
+
+        .purple {
+            h4, a:hover {
+                color: $purple;
+            }
+        }
+
+        .upvoty {
+            h4, a:hover {
+                color: $upvoty;
+            }
+        }
+
+        .indigo {
+            h4, a:hover {
+                color: $indigo;
+            }
+        }
+
+        .foxxy {
+            h4, a:hover {
+                color: $foxxy;
+            }
+        }
+    }
+}
+
+.settings-modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    width: 80vw;
+    height: 80vh;
+    overflow: auto;
+    background: $foreground;
+    color: #2e3440;
+    padding: 15px;
+
+    .modal-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .close {
+        color: #4c566a;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+
+        &:hover, &:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            }
+      }
+}
+
+#settings-cog {
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    transition: 2s ease-in;
+    display: none;
+    
+    &:hover .cog {
+        fill: white;
+        stroke: white;
+        transition: 2s ease-in;
+    }
+}

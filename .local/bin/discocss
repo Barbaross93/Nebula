@@ -1,0 +1,41 @@
+#!/bin/sh
+
+confdir="${XDG_CONFIG_HOME:=$HOME/.config}/discocss"
+preloadFile="$confdir/preload.js"
+cssFile="$confdir/custom.css"
+
+mkdir -p "$confdir"
+
+touch "$cssFile"
+
+cat <<EOF > "$preloadFile"
+(() => {
+  const fs = require("fs");
+  const confDir = "$confdir";
+  const cssFile = "$cssFile";
+
+  function reload(style) {
+    style.innerHTML = fs.readFileSync(cssFile);
+  }
+
+  function inject({ document, window }) {
+    window.addEventListener("load", () => {
+      const style = document.createElement("style");
+      reload(style);
+      document.head.appendChild(style);
+
+      fs.watch(confDir, {}, () => reload(style));
+    });
+  }
+
+  inject(require("electron").webFrame.context);
+})();
+EOF
+
+ln -f -s "$preloadFile" /tmp/discocss-preload.js
+
+sed -i 's|  // App preload script, used to provide a replacement native API now that|try { require\(`/tmp/discocss-preload.js`) } catch \(e\) {console.error\(e\);} |' \
+    "$XDG_CONFIG_HOME"/discord/*/modules/discord_desktop_core/core.asar
+
+command -v discord && exec discord
+command -v Discord && exec Discord

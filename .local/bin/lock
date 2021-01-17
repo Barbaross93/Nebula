@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+sleep 0.3
+#urxvt -name cmatrixterm -e unimatrix -ans 96 -l 'o' &
+#sleep 3
+loginctl lock-session
+#light-locker-command -l

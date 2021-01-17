@@ -1,0 +1,6 @@
+[theme]
+name=lightdm-gab-nord
+description=A webkit theme, based on the great Nord project.
+engine=lightdm-webkit-greeter
+url=index.html
+session=bspwm

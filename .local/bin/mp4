@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if pgrep -f giph &>/dev/null; then
+	giph --stop &>/dev/null
+else
+	notify-send --app-name "giph" -u normal "Select region to record"
+	setsid -f giph -s -y -a --format mp4 ~/Videos/$(date +%s).mp4 &>/dev/null
+fi
