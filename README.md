@@ -3,6 +3,8 @@ Dotfiles for the Genome setup
 
 Here you can find the dotfiles for my latest setup. Feel free to create an issue if I'm missing something
 
+<img src="https://raw.githubusercontent.com/Barbarossa93/Genome/main/out.png" alt="img" align="right" width="800px">
+
 ## Info
 - OS: Arch
 - Terminal: rxvt-unicode-truecolor-wide-glyphs on the [AUR](https://aur.archlinux.org/packages/rxvt-unicode-truecolor-wide-glyphs/)
