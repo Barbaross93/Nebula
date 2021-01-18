@@ -20,7 +20,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Chat: Discord styled with [discocss](https://github.com/mlvzk/discocss)
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
-- Notifications: Dunst with scripts for a rofi based notification center (see [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/dunst_logger.sh) and [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/rofi_notif_center.sh)
+- Notifications: Dunst with scripts for a rofi based notification center (see [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/dunst_logger.sh) and [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/rofi_notif_center.sh))
 - Compositor: Jonaburg's fork of [Picom](https://github.com/jonaburg/picom)
 - Login Manager/Lockscreen: Lightdm-webkit2-greeter with slightly modified [lightdm-gab-nord](https://github.com/AlphaNecron/lightdm-gab-nord) theme
 - Colorscheme: [Nord](https://www.nordtheme.com/)
