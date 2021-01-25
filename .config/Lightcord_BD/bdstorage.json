@@ -1,0 +1,74 @@
+{
+    "settings": {
+        "stable": {
+            "settings": {
+                "bda-gs-1": true,
+                "bda-gs-2": false,
+                "bda-gs-3": false,
+                "bda-gs-4": false,
+                "bda-gs-5": true,
+                "bda-gs-6": false,
+                "bda-gs-7": false,
+                "bda-gs-8": false,
+                "bda-es-0": true,
+                "bda-es-1": true,
+                "bda-es-2": true,
+                "bda-es-4": false,
+                "bda-es-6": true,
+                "bda-es-7": true,
+                "bda-gs-b": false,
+                "bda-es-8": true,
+                "bda-dc-0": false,
+                "bda-css-0": false,
+                "bda-css-1": false,
+                "bda-es-9": true,
+                "fork-dm-1": false,
+                "fork-ps-1": true,
+                "fork-ps-2": true,
+                "fork-ps-3": true,
+                "fork-ps-4": true,
+                "fork-ps-5": true,
+                "fork-ps-6": true,
+                "fork-ps-7": false,
+                "fork-es-2": false,
+                "fork-es-3": true,
+                "fork-wp-1": false,
+                "fork-wp-2": false,
+                "fork-beta": true,
+                "lightcord-1": false,
+                "lightcord-2": true,
+                "lightcord-presence-1": false,
+                "lightcord-3": false,
+                "lightcord-4": false,
+                "lightcord-5": true,
+                "lightcord-6": true,
+                "lightcord-7": false,
+                "lightcord-8": false,
+                "lightcord-9": false,
+                "lightcord-10": false,
+                "no_window_bound": false
+            },
+            "rpc": {
+                "name": "qtile",
+                "application_id": "711416957718757418",
+                "state": "Lightcord Client",
+                "details": "Browsing Discord",
+                "timestamps.start": 1611506978174,
+                "assets.small": null,
+                "assets.large": null
+            },
+            "PluginCertifierHashes": "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",
+            "plugins": {
+                "ZeresPluginLibrary": false
+            },
+            "themes": {
+                "Dark Discord": false,
+                "Glasscord Example Theme": false,
+                "Minimal Nord Discord": true
+            }
+        },
+        "canary": {},
+        "ptb": {}
+    },
+    "version": "0.3.5"
+}

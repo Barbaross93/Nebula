@@ -29,6 +29,7 @@ mkfifo /tmp/vol && echo "$(pulsemixer --get-volume | awk '{print $1}')" > /tmp/v
 mkfifo /tmp/vol-icon && ~/.config/qtile/eww_vol_icon.sh mute &
 redshift -l 39.2904:-76.6122 &
 lead &
+thunar --daemon &
 eww daemon
 sleep 3
 eww open border &

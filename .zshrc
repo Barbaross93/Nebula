@@ -125,8 +125,6 @@ alias li="exa --icons"
 #alias tncmpcpp='tmux new-session "tmux source-file ~/.ncmpcpp/tmux_session"'
 #alias ueberncmpcpp='~/.ncmpcpp/ncmpcpp-ueberzug/ncmpcpp-ueberzug'
 #alias spotify='tmux new-session "tmux source-file ~/.config/spotifyd/tmux_session"'
-#alias happyanniversary="cat For_my_lovebug | pv -qL 12"
-#alias happybirthday="cat happy_birthday_boo"
 #alias cligoogle="BROWSER=w3m googler"
 alias clip="xclip -sel clip"
 alias logout="kill -9 -1"
@@ -201,7 +199,7 @@ function ranger {
 # Pfetch configuration
 export PF_INFO="ascii title os kernel wm pkgs shell term palette"
 # for pfetch; term doesn't show properly in tmux
-export TERM_PROGRAM="urxvt"
+export TERM_PROGRAM="alacritty"
 
 # pidswallow fix
 [ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$"

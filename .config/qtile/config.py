@@ -23,9 +23,12 @@ from libqtile import qtile
 from typing import List  # noqa: F401
 from custom.bsp import Bsp as CustomBsp
 from custom.pomodoro import Pomodoro as CustomPomodoro
+from custom.zoomy import Zoomy as CustomZoomy
+from custom.stack import Stack as CustomStack
+from custom.windowname import WindowName as CustomWindowName
 
 mod = "mod4"
-terminal = "urxvt"
+terminal = "alacritty"
 myconfig = "/home/barbarossa/.config/qtile/config.py"
 
 ## Resize functions for bsp layout
@@ -85,6 +88,12 @@ keys = [
         "d",
         lazy.group["scratchpad"].dropdown_toggle("term"),
         desc="Toggle dropdown terminal",
+    ),
+    Key(
+        [mod, "shift"],
+        "d",
+        lazy.group["scratchpad"].dropdown_toggle("fm"),
+        desc="Toggle dropdown file manager",
     ),
     Key(
         [mod],
@@ -245,7 +254,7 @@ keys = [
     Key(
         [mod, "shift"],
         "Return",
-        lazy.spawn("sh -c 'urxvt -cd \"$(xcwd)\"'"),
+        lazy.spawn("sh -c 'alacritty --working-directory \"$(xcwd)\"'"),
         desc="Launch terminal from directory of focused window",
     ),
     Key(
@@ -289,8 +298,14 @@ keys = [
     Key(
         [mod],
         "Print",
-        lazy.spawn("./.config/sxhkd/prtregion"),
+        lazy.spawn("./.config/sxhkd/prtregion -d"),
         desc="Print region of screen",
+    ),
+    Key(
+        [mod, "shift"],
+        "Print",
+        lazy.spawn("./.config/sxhkd/prtregion -c"),
+        desc="Print region of screen to clipboard",
     ),
     # Key(
     #    [mod],
@@ -465,17 +480,37 @@ workspaces = [
         "key": "2",
         "matches": [Match(wm_class="Thunderbird"), Match(wm_class="ptask")],
     },
-    {"name": "", "key": "3", "matches": []},
+    {
+        "name": "",
+        "key": "3",
+        "matches": [
+            Match(wm_class="joplin"),
+            Match(wm_class="libreoffice"),
+            Match(wm_class="org.pwmt.zathura"),
+        ],
+    },
     {"name": "", "key": "4", "matches": [Match(wm_class="emacs")]},
-    {"name": "", "key": "5", "matches": []},
-    {"name": "", "key": "6", "matches": [Match(wm_class="slack")]},
+    {"name": "", "key": "5", "matches": [Match(wm_class="Alacritty")]},
+    {
+        "name": "",
+        "key": "6",
+        "matches": [
+            Match(wm_class="slack"),
+            Match(wm_class="lightcord"),
+            Match(wm_class="polari"),
+        ],
+    },
     {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
     {"name": "", "key": "8", "matches": [Match(wm_class="zoom")]},
     {"name": "", "key": "9", "matches": [Match(wm_class="gimp")]},
     {
         "name": "",
         "key": "0",
-        "matches": [Match(wm_class="lxappearance"), Match(wm_class="pavucontrol")],
+        "matches": [
+            Match(wm_class="lxappearance"),
+            Match(wm_class="pavucontrol"),
+            Match(wm_class="connman-gtk"),
+        ],
     },
 ]
 
@@ -487,18 +522,30 @@ groups = [
             # it is placed in the upper third of screen by default.
             DropDown(
                 "term",
-                "urxvt -e tmux_startup.sh",
+                "alacritty --class dropdown -e tmux_startup.sh",
                 height=0.6,
                 on_focus_lost_hide=False,
                 opacity=1,
                 warp_pointer=False,
-            )
+            ),
+            DropDown(
+                "fm",
+                "thunar",
+                width=0.6,
+                height=0.6,
+                x=0.2,
+                y=0.1,
+                on_focus_lost_hide=False,
+                opacity=1,
+                warp_pointer=True,
+            ),
         ],
     ),
 ]
+
 for workspace in workspaces:
     matches = workspace["matches"] if "matches" in workspace else None
-    groups.append(Group(workspace["name"], matches=matches, layout="Bsp"))
+    groups.append(Group(workspace["name"], matches=matches, layout="bsp"))
     keys.append(
         Key(
             [mod],
@@ -516,30 +563,7 @@ for workspace in workspaces:
         )
     )
 
-layout_theme = {
-    "border_width": 3,
-    "margin": 9,
-    "border_focus": "3b4252",
-    "border_normal": "3b4252",
-}
-
-layouts = [
-    # layout.MonadWide(**layout_theme),
-    # layout.Bsp(**layout_theme, fair=False, grow_amount=2),
-    CustomBsp(**layout_theme, fair=False, grow_amount=2),
-    # layout.Columns(**layout_theme),
-    # layout.RatioTile(**layout_theme),
-    # layout.Verticmod1ile(**layout_theme),
-    # layout.Matrix(**layout_theme),
-    # layout.Zoomy(**layout_theme),
-    # layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-    # layout.Tile(shift_windows=True, **layout_theme),
-    layout.Stack(num_stacks=2, **layout_theme),
-    layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
-]
-
-# Finish changing colors and setup bar
+# Define colors
 
 colors = [
     ["#2e3440", "#2e3440"],  # background
@@ -558,6 +582,53 @@ colors = [
     ["#5e81ac", "#5e81ac"],  # super blue
     ["#242831", "#242831"],  # super dark background
 ]
+
+layout_theme = {
+    "border_width": 3,
+    "margin": 9,
+    "border_focus": "3b4252",
+    "border_normal": "3b4252",
+    "font": "FiraCode Nerd Font",
+    "grow_amount": 2,
+}
+
+layouts = [
+    # layout.MonadWide(**layout_theme),
+    # layout.Bsp(**layout_theme, fair=False, grow_amount=2),
+    CustomBsp(**layout_theme, fair=False),
+    # layout.Columns(
+    #    **layout_theme,
+    #    border_on_single=True,
+    #    num_columns=3,
+    #    # border_focus_stack=colors[2],
+    #    # border_normal_stack=colors[2],
+    #    split=False,
+    # ),
+    # layout.RatioTile(**layout_theme),
+    # layout.VerticalTile(**layout_theme),
+    # layout.Matrix(**layout_theme, columns=3),
+    CustomZoomy(**layout_theme),
+    # layout.Slice(**layout_theme),
+    # layout.TreeTab(
+    #    **layout_theme,
+    #    active_bg=colors[14],
+    #    active_fg=colors[1],
+    #    bg_color=colors[0],
+    #    fontsize=16,
+    #    inactive_bg=colors[0],
+    #    inactive_fg=colors[1],
+    #    sections=["TreeTab", "TreeTab2"],
+    #    section_fontsize=18,
+    #    section_fg=colors[1],
+    # ),
+    # layout.MonadTall(**layout_theme),
+    # layout.Max(**layout_theme),
+    # layout.Tile(shift_windows=True, **layout_theme),
+    layout.Stack(num_stacks=2, **layout_theme),
+    layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
+]
+
+# Setup bar
 
 widget_defaults = dict(
     font="FiraCode Nerd Font", fontsize=18, padding=3, background=colors[0]
@@ -643,6 +714,8 @@ def open_powermenu():
 
 screens = [
     Screen(
+        wallpaper="~/Pictures/dnord4k_dark.png",
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 # widget.Image(
@@ -777,11 +850,12 @@ screens = [
                     # fontsize=38,
                     font="Font Awesome 5 Free Solid",
                 ),
-                widget.WindowName(
+                CustomWindowName(
                     background=colors[0],
                     foreground=colors[12],
                     width=bar.CALCULATED,
                     empty_group_string="Desktop",
+                    max_chars=165,
                     mouse_callbacks={"Button2": kill_window},
                 ),
                 widget.CheckUpdates(
@@ -1004,7 +1078,7 @@ screens = [
                 ),
             ],
             48,
-            margin=[0, -4, 18, -4],
+            margin=[0, -4, 21, -4],
         ),
         bottom=bar.Gap(18),
         left=bar.Gap(18),
@@ -1030,7 +1104,7 @@ dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = "floating_only"
 cursor_warp = False
 floating_layout = layout.Floating(
     **layout_theme,
@@ -1067,13 +1141,14 @@ floating_layout = layout.Floating(
 auto_fullscreen = True
 focus_on_window_activation = "focus"
 
-
+# Startup scripts
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
 
 
+# Window swallowing ;)
 @hook.subscribe.client_new
 def _swallow(window):
     pid = window.window.get_net_wm_pid()
@@ -1096,6 +1171,22 @@ def _swallow(window):
 def _unswallow(window):
     if hasattr(window, "parent"):
         window.parent.minimized = False
+
+
+# Go to group when app opens on matched group
+@hook.subscribe.client_new
+def modify_window(client):
+    # if (client.window.get_wm_transient_for() or client.window.get_wm_type() in floating_types):
+    #    client.floating = True
+
+    for group in groups:  # follow on auto-move
+        match = next((m for m in group.matches if m.compare(client)), None)
+        if match:
+            targetgroup = client.qtile.groups_map[
+                group.name
+            ]  # there can be multiple instances of a group
+            targetgroup.cmd_toscreen(toggle=False)
+            break
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

@@ -124,7 +124,7 @@ class Pomodoro(base.ThreadPoolText):
         self.end_time = datetime.now() + timedelta(minutes=self.length_pomodori)
         if self.notification_on:
             self._send_notification(
-                "critical",
+                "normal",
                 "Please start with the next Pomodori! End Time: "
                 + self.end_time.strftime("%I:%M %p"),
             )
@@ -186,7 +186,7 @@ class Pomodoro(base.ThreadPoolText):
         if self.status != self.STATUS_INACTIVE:
             self.status = self.STATUS_INACTIVE
             if self.notification_on:
-                self._send_notification("critical", "Pomodoro has been suspended")
+                self._send_notification("normal", "Pomodoro has been suspended")
         else:
             self.status = self.STATUS_START
 

@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Feed script a url or file location.
+# If an image, it will view in sxiv,
+# if a video or gif, it will view in mpv
+# if a music file or pdf, it will download,
+# otherwise it opens link in browser.
+
+export BROWSER=/usr/bin/firefox
+# If no url given. Opens browser. For using script as $BROWSER.
+[ -z "$1" ] && { exit; }
+
+case "$1" in
+	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*)
+		setsid mpv --autofit=1366x768 --input-ipc-server=/tmp/mpvsoc$(date +%s) -quiet "$1" >/dev/null 2>&1 & ;;
+	*torrent)
+		setsid transadd "$1" >/dev/null 2>&1 & ;;
+	*png|*png*|*jpg|*jpg*|*jpe|*jpe*|*jpeg|*jpeg*)
+		curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///")" && feh --scale-down "/tmp/$(echo "$1" | sed "s/.*\///")"  >/dev/null 2>&1 & ;;
+	*pdf|*cbz|*cbr)
+		curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///;s/%20/ /g")" && zathura "/tmp/$(echo "$1" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 & ;;
+	*mp3|*flac|*opus|*mp3?source*)
+		setsid tsp curl -LO "$1" >/dev/null 2>&1 & ;;
+	*gif*)
+		curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///")" && mpv --loop -quiet "/tmp/$(echo "$1" | sed "s/.*\///")"  >/dev/null 2>&1 & ;;
+	*)
+		if [ -f "$1" ]; then "$TERMINAL" -e "$EDITOR $1"
+		#elif [ -z "$*" ]; then exit 0
+		else setsid $BROWSER "$1" >/dev/null 2>&1 & fi ;;
+esac

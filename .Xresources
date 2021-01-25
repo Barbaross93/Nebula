@@ -1,7 +1,7 @@
 Xcursor.theme: capitaine-cursors
 Xcursor.size: 48
 
-!Xft.dpi:                        161
+Xft.dpi:                        161
 Xft.antialias:                  1
 Xft.autohint:                   0
 Xft.hinting:                    true

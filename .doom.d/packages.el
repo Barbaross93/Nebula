@@ -63,12 +63,3 @@
 ;; To plat audio in emacs
 ;(package! emms)
 
-;; Crosshair mode packages
-(package! vline)
-(package! hl-line+)
-(package! crosshairs.el
-  :recipe (:host github :repo "emacsmirror/emacswiki.org"
-           :files ("crosshairs.el")))
-(package! col-highlight.el
-  :recipe (:host github :repo "emacsmirror/emacswiki.org"
-           :files ("col-highlight.el")))

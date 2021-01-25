@@ -64,7 +64,7 @@
           <button class="notes" onclick="wmctrl -xa ptask || setsid -f ptask"></button>
           <button class="rstudio" onclick="wmctrl -xa rstudio || setsid -f rstudio-bin"></button>
           <button class="slack" onclick="wmctrl -xa slack || setsid -f slack"></button>
-          <button class="terminal" onclick="setsid -f urxvt"></button>
+          <button class="terminal" onclick="setsid -f alacritty"></button>
         </box>
       </box>
     </def>
@@ -109,11 +109,11 @@
     <!-- Profile vars? -->
     <!-- Launcher vars -->
     <!-- Weather vars -->
-    <script-var name="weather-icon" interval="20m">cat /tmp/weather/weather-icon</script-var>
-    <script-var name="weather-hex" interval="20m">cat /tmp/weather/weather-hex</script-var>
-    <script-var name="temperature" interval="20m">cat /tmp/weather/weather-degree</script-var>
-    <script-var name="weather-stat-side" interval="20m">~/.config/eww/scripts/weather-trimmer</script-var>
-    <script-var name="weather-quote" interval="20m">~/.config/eww/scripts/getwethquote</script-var>
+    <script-var name="weather-icon" interval="5s">cat /tmp/weather/weather-icon</script-var>
+    <script-var name="weather-hex" interval="5s">cat /tmp/weather/weather-hex</script-var>
+    <script-var name="temperature" interval="5s">cat /tmp/weather/weather-degree</script-var>
+    <script-var name="weather-stat-side" interval="5s">~/.config/eww/scripts/weather-trimmer</script-var>
+    <script-var name="weather-quote" interval="5s">~/.config/eww/scripts/getwethquote</script-var>
     <var name="pango">&lt;span foreground="#d08770" font_family="icons"&gt;&lt;/span&gt;</var>
     <!--Vol vars -->
     <script-var name="vol-icon">tail -F /tmp/vol-icon</script-var>

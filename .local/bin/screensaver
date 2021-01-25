@@ -12,7 +12,8 @@ tmux new-session -d -s matrix timeout 178 pipes.sh -t 1 -r 8000 #cbonsai -i -M 1
 #unimatrix -fans 88 -l 'o' -t 178
 
 #alacritty --config-file ~/.config/alacritty/cmatrixterm.yml --class cmatrixterm -e tmux attach -t matrix \; set status off & disown
-urxvt -name cmatrixterm -e tmux attach -t matrix \; set status off & disown
+#urxvt -name cmatrixterm -e tmux attach -t matrix \; set status off & disown
+alacritty --class cmatrixterm -e tmux attach -t matrix \; set status off & disown
 sleep 0.1
 qtile cmd-obj -o window -f toggle_fullscreen
 #wid=$(xdotool search --classname "cmatrixterm")

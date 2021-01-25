@@ -22,7 +22,7 @@
 (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 22)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 30)
       doom-unicode-font (font-spec :family "Font Awesome 5 Free Solid" :size 22)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 22))
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 22))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic))
 ;(setq inhibit-compacting-font-caches t)
@@ -92,11 +92,6 @@
       evil-motion-state-tag   (propertize "[Motion]" 'face '((:background "blue") :foreground "white"))
       evil-visual-state-tag   (propertize "[Visual]" 'face '((:background "grey80" :foreground "black")))
       evil-operator-state-tag (propertize "[Operator]" 'face '((:background "purple"))))
-
-;; Crosshairs mode; highlight column and line at cursor
-(if (display-graphic-p) (setq col-highlight-vline-face-flag t))
-(if (display-graphic-p) (set-face-background 'col-highlight "#272c36"))
-(if (display-graphic-p) (crosshairs-mode))
 
 ;; Change cursor style
 (setq evil-insert-state-cursor 'hbar

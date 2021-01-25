@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eww>
+  <definitions>
+    <def name="player">
+          <box orientation="h" space-evenly="false">
+            <box class="musicart" style="background-image: url('{{cover}}');">{{art}}</box>
+            <box orientation="v" space-evenly="false">
+              <box class="musictitle">{{music3}}</box>
+              <box class="musicalbum">{{music2}}</box>
+              <box class="musicartist">{{music}}</box>
+              <box orientation="h" halign="center" class="musicbtn" space-evenly="false">
+                  <button onclick="playerctl previous"></button> 
+                  <button onclick="playerctl play-pause">{{musicstat}}</button>
+                  <button onclick="playerctl next"></button>
+              </box>
+              </box>
+          </box>
+    </def>
+    <def name="calendar">
+        <box orientation="v"  space-evenly="false">
+            <box class="time">{{time}}</box>
+            <box class="date">{{date}}</box>
+        </box>
+    </def>
+    <def name="system_info">
+        <box orientation="v" space-evenly="false" class="sliders-side"> 
+            <box orientation="h" class="slider-cpu-slide" space-evenly="false">
+                <box class="label-cpu-side">CPU</box>
+                <scale min="0" active="false" max="100" value="{{cpu-used}}"/>
+            </box>
+            <box orientation="h" class="slider-ram-side" space-evenly="false">
+                <box class="label-ram-side"></box>
+                <scale min="0" active="false" max="101" value="{{ram-used}}"/>
+            </box> 
+            <box orientation="h" class="slider-hdd-side" space-evenly="false">
+                <box class="label-hdd-side"></box>
+                <scale min="0" max="100" active="false" value="{{hdd-used}}"/>
+            </box>
+        </box>
+    </def>
+    <def name="profile">
+        <box orientation="h" space-evenly="false" class="profile">
+            <box orientation="h" space-evenly="false">
+                <box class="pfp"></box>
+            </box>
+            <box orientation="v" space-evenly="false"> 
+                <box class="pfptxt" valign="center">Cullen Ross</box>
+                <box class="subpfptxt" halign="center">Barbarossa</box>
+            </box>
+        </box>
+    </def>
+    <def name="launch">
+      <box orientation="v" space-evenly="false" class="launch">
+        <box orientation="h" halign="center" class="launch1" space-evenly="false">
+          <button onclick="firefox">FIREFOX</button>
+          <button onclick="thunderbird">THUNDERBIRD</button>
+          <button onclick="thunar">THUNAR</button>
+          <button onclick="emacs">EMACS</button>
+        </box>
+        <box orientation="h" halign="center" class="launch2" space-evenly="false">
+          <button onclick="pomotroid">POMO</button>
+          <button onclick="joplin">JOPLIN</button>
+          <button onclick="slack">SLACK</button>
+          <button onclick="urxvt">URXVT</button>
+        </box>
+      </box>
+    </def>
+    <def name="weather">
+        <box orientation="h"  space-evenly="false">
+            <box class="weather-icon-side" style="color: {{weather-hex}}">{{weather-icon}}</box>
+            <box class="weather-info-side" orientation="v" space-evenly="false">
+                <box class="temperature-side">{{temperature}}  </box>
+                <box class="weather-stat-side">{{weather-stat-side}}</box>
+            </box>
+        </box>
+    </def>
+  </definitions>
+  <variables>
+    <!-- Player vars -->
+    <script-var name="music" interval="3s">playerctl metadata --format '{{ artist }}'</script-var>
+    <script-var name="music2" interval="3s">playerctl metadata --format '{{ album }}'</script-var>
+    <script-var name="music3" interval="3s">playerctl metadata --format '{{ title }}'</script-var>
+    <script-var name="musicstat" interval="1s">~/.local/bin/spotifystatus</script-var>
+    <script-var name="cover" interval="5s">~/.config/eww/scripts/echoart</script-var>
+    <script-var name="art" interval="5s">~/.config/eww/scripts/getart</script-var>
+    <!-- Calendar vars -->
+    <!-- System info vars -->
+    <script-var name="cpu-used" interval="1s">~/.config/eww/scripts/getcpu</script-var>
+    <script-var name="ram-used" interval="1s">~/.config/eww/scripts/getram</script-var>
+    <script-var name="hdd-used" interval="5s">~/.config/eww/scripts/gethdd</script-var>
+    <!-- Profile vars? -->
+    <!-- Launcher vars -->
+    <!-- Weather vars -->
+    <script-var name="weather-icon" interval="20m">cat /tmp/weather/weather-icon</script-var>
+    <script-var name="weather-hex" interval="20m">cat /tmp/weather/weather-hex</script-var>
+    <script-var name="temperature" interval="20m">cat /tmp/weather/weather-degree</script-var>
+    <script-var name="weather-stat-side" interval="20m">~/.config/eww/scripts/weather-trimmer</script-var>
+  </variables>
+  <windows>
+      <window name="main_bottom">
+          <geometry x="5%" y="0%" width="90%" height="25%"/>
+          <widget>
+              <profile/>
+             <!-- <player/>
+              <launch/>
+              <weather/>
+              <system_info/>-->
+          </widget>
+      </window>
+      <window name="volume">
+      </window>
+      <window name="brightness">
+        </window>
+  </windows>
+</eww>
