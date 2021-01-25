@@ -17,7 +17,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Gtk: [Nordic-darker](https://github.com/EliverLara/Nordic)
 - File manager: Thunar
 - Editor: [Doom Emacs](https://github.com/hlissner/doom-emacs)
-- Chat: Discord styled with [discocss](https://github.com/mlvzk/discocss)
+- Chat: [Lightcord](https://github.com/Lightcord/Lightcord)
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
 - Notifications: Dunst with scripts for a rofi based notification center (see [here](https://github.com/Barbarossa93/Genome/blob/4a08d3cfd0900807aefaa9f9241a6dbf926c549b/.config/dunst/dunstrc#L77), [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/dunst_logger.sh) and [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/rofi_notif_center.sh))
