@@ -9,7 +9,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 ## Info
 - OS: Arch
 - WM: [Qtile-git](https://github.com/qtile/qtile)
-- Terminal: rxvt-unicode-truecolor-wide-glyphs on the [AUR](https://aur.archlinux.org/packages/rxvt-unicode-truecolor-wide-glyphs/)
+- Terminal: Alacritty
 - Browser: Firefox with a few small modifications to [Minimal Functional Fox](https://github.com/mut-ex/minimal-functional-fox)
   - Startpage: [startpage](https://github.com/deepjyoti30/startpage)
 - Fonts: FiraCode [Nerd Font](https://github.com/ryanoasis/nerd-fonts) for general text and [Font Awesome 5 Free](https://fontawesome.com/) for icons
@@ -17,7 +17,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Gtk: [Nordic-darker](https://github.com/EliverLara/Nordic)
 - File manager: Thunar
 - Editor: [Doom Emacs](https://github.com/hlissner/doom-emacs)
-- Chat: Discord styled with [discocss](https://github.com/mlvzk/discocss)
+- Chat: [Lightcord](https://github.com/Lightcord/Lightcord)
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
 - Notifications: Dunst with scripts for a rofi based notification center (see [here](https://github.com/Barbarossa93/Genome/blob/4a08d3cfd0900807aefaa9f9241a6dbf926c549b/.config/dunst/dunstrc#L77), [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/dunst_logger.sh) and [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/rofi_notif_center.sh))
