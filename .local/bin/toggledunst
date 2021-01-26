@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$(dunstctl is-paused)" = "false" ];
+then
+	dunstify -u normal -t 3000 -r 669 " Dunst disabled"
+	sleep 3
+	dunstctl set-paused true
+
+else
+	 dunstctl set-paused false
+	 dunstify -u normal -t 3000 -r 669 " Dunst enabled"
+fi

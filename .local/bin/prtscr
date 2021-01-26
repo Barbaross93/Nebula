@@ -1,0 +1,8 @@
+#!/bin/sh
+
+notify-send -i /usr/share/icons/Nord-Icon/48x48/apps/accessories-screenshot.svg -a Screenshot -u normal -t 3000 'Screenshot will be taken in 5 seconds'
+location=~/Pictures/Screenshots/$(date +%s).png
+sleep 5
+maim -q "$location"
+notify-send -a Screenshot -i "$location" -u normal -t 3000 'Screenshot taken'
+

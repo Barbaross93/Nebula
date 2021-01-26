@@ -1,0 +1,15 @@
+#!/bin/sh
+
+case "$1" in
+    -c|--clipboard)
+        notify-send -i /usr/share/icons/Nord-Icon/48x48/apps/accessories-screenshot.svg -a Screenshot -u normal -t 3000 'Select a region to screenshot'
+        maim -s | xclip -selection clipboard -t image/png
+        notify-send -i /usr/share/icons/Nord-Icon/48x48/apps/accessories-screenshot.svg -a Screenshot -u normal -t 3000 'Screenshot of region taken and saved to clipboard'
+        ;;
+    -d|--disk)    
+        notify-send -i /usr/share/icons/Nord-Icon/48x48/apps/accessories-screenshot.svg -a Screenshot -u normal -t 3000 'Select a region to screenshot'
+        maim -s ~/Pictures/Screenshots/$(date +%s).png | xclip -selection clipboard -t image/png
+        notify-send -i /usr/share/icons/Nord-Icon/48x48/apps/accessories-screenshot.svg -a Screenshot -u normal -t 3000 'Screenshot of region taken'
+        ;;
+esac
+              

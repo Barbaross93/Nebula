@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if pidof picom;
+then
+	killall picom;
+	notify-send -a Picom -i /usr/share/icons/Nord-Icon/48x48/apps/picom.svg -u normal -t 3000 "Picom killed"	
+	#dunstify -u normal -r 609 -t 3000 "Picom killed"
+else
+	picom --experimental-backends &
+	notify-send -a Picom -i /usr/share/icons/Nord-Icon/48x48/apps/picom.svg -u normal -t 3000 "Picom Started"
+	#dunstify -u normal -r 609 -t 3000 "Picom Started"
+fi

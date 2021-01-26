@@ -1,0 +1,78 @@
+#!/bin/sh
+color="#afb7d2'>"
+col="<span color='"
+end="</span>"
+FULL=""
+EMPTY=""
+value="${3:-5}"
+
+case $1 in
+pulse)
+	case $2 in
+		up) currentVolume=$(pulsemixer --get-volume | awk '{print $1}')
+			if [[ "$currentVolume" -ge "100" ]]; then
+				pulsemixer --max-volume 100
+			else
+				pulsemixer --change-volume +"$value"
+			fi
+			label="" 
+		;;
+		down) pulsemixer --change-volume -"$value"
+			label=""
+		;;
+		mute) muted=$(pulsemixer --get-mute)
+			if [[ "$muted" == "0" ]]; then
+				pulsemixer --toggle-mute
+				#dunstify -u normal -t 3000 -r 5421 ' Audio muted'
+				exit 0
+			else 
+				pulsemixer --toggle-mute
+				label=""
+			fi
+	esac
+	vol=$(pulsemixer --get-volume | awk '{print $1}')
+	;;
+pulsemic)
+	case $2 in
+		up) currentVolume=$(pulsemixer --id source-1 --get-volume | awk '{print $1}')
+			if [[ "$currentVolume" -ge "100" ]]; then
+				pulsemixer --max-volume 100 --id source-1
+			else
+				pulsemixer --id source-1 --change-volume +"$value" 
+			fi
+			label="" 
+		;;
+		down) pulsemixer --id source-1 --change-volume -"$value"
+			label=""
+		;;
+		mute) muted=$(pulsemixer --id source-1 --get-mute)
+			if [[ "$muted" == "0" ]]; then
+				pulsemixer --toggle-mute --id source-1
+				notify-send -u normal ' Mic muted'
+				exit 0
+			else 
+				pulsemixer --toggle-mute --id source-1
+				label=""
+			fi
+	esac
+	vol=$(pulsemixer --id source-1 --get-volume | awk '{print $1}')
+	notify-send -u normal "$label Mic Volume: $vol%"
+	;;
+
+mpc)
+	case $2 in
+	up)
+		mpc volume +"$value"
+		;;
+	down)
+		mpc volume -"$value"
+		;;
+	esac
+	vol=$(mpc volume | awk -F "\t|%|:" '{ print $2 }' | tr -d " ")
+	label="MPD"
+	;;
+esac
+
+barFull=$(seq -s "$FULL" $((vol / 10)) | sed 's/[0-9]//g')
+barEmpty=$(seq -s "$EMPTY" $((11 - vol / 10)) | sed 's/[0-9]//g')
+#dunstify -t 3000 -r 2593 -u normal "$label Volume: $vol%" "$col$color$barFull$end$barEmpty"
