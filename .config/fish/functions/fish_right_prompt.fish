@@ -1,6 +1,8 @@
-# Defined in /tmp/fish.sAQNpF/fish_right_prompt.fish @ line 2
+set -g _tide_right_prompt_display_var _tide_right_prompt_display_$fish_pid
+
 function fish_right_prompt
-  set_color magenta
-  echo '' (task status:pending count)
-  set_color normal
+    printf '%s' $$_tide_right_prompt_display_var
+    # Right prompt is always the last thing on the line 
+    # therefore reset colors for tab completion
+    set_color normal
 end
