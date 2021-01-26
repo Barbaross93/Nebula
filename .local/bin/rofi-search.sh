@@ -4,8 +4,8 @@
 
 #export ROFI_SEARCH='googler'
 #export GOOGLE_ARGS='["--count", 13]'
-export GOOGLE_API_KEY=' AIzaSyAFs0f_T1bMzVHv0QgahI4DdxtVRcU_gG8'
-export GOOGLE_SEARCH_ID='b84e8a9005e8ce3b4'
+export GOOGLE_API_KEY='{YOUR_API_KEY HERE}'
+export GOOGLE_SEARCH_ID='{YOUR SEARCH ID HERE}'
 export ROFI_SEARCH='cse'
 
 export TITLE_COLOR='#5e81ac'
