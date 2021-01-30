@@ -10,7 +10,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - OS: Arch
 - WM: [Qtile-git](https://github.com/qtile/qtile)
 - Terminal: Alacritty
-- Shell: Fish
+- Shell: zsh
 - Browser: Firefox with a few small modifications to [Minimal Functional Fox](https://github.com/mut-ex/minimal-functional-fox)
   - Startpage: [startpage](https://github.com/deepjyoti30/startpage)
 - Fonts: FiraCode [Nerd Font](https://github.com/ryanoasis/nerd-fonts) for general text and [Font Awesome 5 Free](https://fontawesome.com/) for icons
