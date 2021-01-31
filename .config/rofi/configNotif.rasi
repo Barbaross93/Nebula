@@ -39,10 +39,10 @@ configuration {
 }
 
 window {
-	location:	 east;
-	anchor:		 east;
-	height:		 85%;
-    //y-offset:    24px;
+	location:	 northeast;
+	anchor:		 northeast;
+	//height:		 85%;
+    y-offset:    68px;
     x-offset:    12px;
 	width:		 20%;
 	orientation: horizontal;
