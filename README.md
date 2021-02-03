@@ -1,6 +1,4 @@
 # Genome
-Dotfiles for the Genome setup
-
 Here you can find the dotfiles for my latest setup on the latest qtile-git. Feel free to create an issue if I'm missing something
 
 NOTE: These dots are intended for my setup. If you wish to use them (and feel free to take them and tinker around), you will have to make specific modifications
