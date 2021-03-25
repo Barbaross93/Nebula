@@ -93,6 +93,14 @@
     appname = dunst
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
 
+[giph]
+    appname = giph
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/simplescreenrecorder.svg
+
+[giph_summary]
+    summary = giph
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/simplescreenrecorder.svg
+    
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space

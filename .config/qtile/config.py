@@ -90,15 +90,9 @@ keys = [
         desc="Toggle dropdown terminal",
     ),
     Key(
-        [mod, "shift"],
-        "d",
-        lazy.group["scratchpad"].dropdown_toggle("fm"),
-        desc="Toggle dropdown file manager",
-    ),
-    Key(
         [mod],
         "e",
-        lazy.spawn("./.config/rofi/launchers/ribbon/launcher.sh"),
+        lazy.spawn("./.config/rofi/launchers/colorful/launcher.sh"),
         # lazy.spawn("rofi -display-drun '' -show drun -drun-show-actions"),
         desc="Rofi app launcher",
     ),
@@ -114,7 +108,7 @@ keys = [
     Key(
         [mod, "shift"],
         "a",
-        lazy.spawn("emacs /home/barbarossa/.config/qtile/config.py"),
+        lazy.spawn("code /home/barbarossa/.config/qtile/config.py"),
         desc="Config qtile",
     ),
     ### Switch focus to specific monitor (out of three)
@@ -206,7 +200,7 @@ keys = [
     Key(
         [mod],
         "m",
-        lazy.layout.maximize(),
+        lazy.window.toggle_maximize(),
         desc="Toggle window between minimum and maximum sizes",
     ),
     Key([mod, "shift"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
@@ -217,6 +211,18 @@ keys = [
         "t",
         lazy.window.toggle_floating(),
         desc="Toggle floating on focused window",
+    ),
+    Key(
+        [mod],
+        "h",
+        lazy.window.toggle_minimize(),
+        desc="Toggle minimization on focused window",
+    ),
+    Key(
+        [mod, "shift"],
+        "h",
+        lazy.group.unminimize_all(),
+        desc="Unminimize all windows on current group",
     ),
     ### Stack controls
     Key(
@@ -242,14 +248,14 @@ keys = [
     Key(
         [mod],
         "b",
-        lazy.spawn("qtile-cmd -o cmd -f hide_show_bar"),
-        desc="Toggle bar visibility",
+        lazy.spawn("./.config/qtile/toggle_eww.sh"),
+        desc="Toggle bottom eww bar visibility",
     ),
     Key(
         [mod],
         "backslash",
-        lazy.spawn("sh -c 'thunar \"$(xcwd)\"'"),
-        desc="Launch thunar",
+        lazy.spawn("sh -c 'nautilus \"$(xcwd)\"'"),
+        desc="Launch nautilus",
     ),
     Key(
         [mod, "shift"],
@@ -264,12 +270,12 @@ keys = [
         desc="Rofi taskwarrior",
     ),
     Key([mod, "shift"], "m", lazy.spawn("splatmoji copy"), desc="*moji selector"),
-    Key(
-        [mod, "shift"],
-        "w",
-        lazy.spawn("./.config/qtile/focus_mode.sh"),
-        desc="Toggle focus mode",
-    ),
+    # Key(
+    #    [mod, "shift"],
+    #    "w",
+    #    lazy.spawn("./.config/qtile/focus_mode.sh"),
+    #    desc="Toggle focus mode",
+    # ),
     Key(
         [mod],
         "w",
@@ -425,7 +431,7 @@ keys = [
     Key(
         [],
         "XF86Calculator",
-        lazy.spawn("galculator"),
+        lazy.spawn("gnome-calculator"),
         desc="Launch calculator",
     ),
     Key(
@@ -478,7 +484,11 @@ workspaces = [
     {
         "name": "",
         "key": "2",
-        "matches": [Match(wm_class="Thunderbird"), Match(wm_class="ptask")],
+        "matches": [
+            Match(wm_class="Thunderbird"),
+            Match(wm_class="com.github.jmoerman.go-for-it"),
+            Match(wm_class="gnome-calendar"),
+        ],
     },
     {
         "name": "",
@@ -489,8 +499,8 @@ workspaces = [
             Match(wm_class="org.pwmt.zathura"),
         ],
     },
-    {"name": "", "key": "4", "matches": [Match(wm_class="emacs")]},
-    {"name": "", "key": "5", "matches": [Match(wm_class="Alacritty")]},
+    {"name": "", "key": "4", "matches": [Match(wm_class="code")]},
+    {"name": "", "key": "5", "matches": []},
     {
         "name": "",
         "key": "6",
@@ -501,8 +511,8 @@ workspaces = [
         ],
     },
     {"name": "", "key": "7", "matches": [Match(wm_class="spotify")]},
-    {"name": "", "key": "8", "matches": [Match(wm_class="zoom")]},
-    {"name": "", "key": "9", "matches": [Match(wm_class="gimp")]},
+    {"name": "", "key": "8", "matches": [Match(wm_class="gimp")]},
+    {"name": "", "key": "9", "matches": []},
     {
         "name": "",
         "key": "0",
@@ -527,17 +537,6 @@ groups = [
                 on_focus_lost_hide=False,
                 opacity=1,
                 warp_pointer=False,
-            ),
-            DropDown(
-                "fm",
-                "thunar",
-                width=0.6,
-                height=0.6,
-                x=0.2,
-                y=0.1,
-                on_focus_lost_hide=False,
-                opacity=1,
-                warp_pointer=True,
             ),
         ],
     ),
@@ -607,7 +606,7 @@ layouts = [
     # layout.RatioTile(**layout_theme),
     # layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme, columns=3),
-    CustomZoomy(**layout_theme),
+    # CustomZoomy(**layout_theme),
     # layout.Slice(**layout_theme),
     # layout.TreeTab(
     #    **layout_theme,
@@ -622,7 +621,7 @@ layouts = [
     #    section_fg=colors[1],
     # ),
     # layout.MonadTall(**layout_theme),
-    # layout.Max(**layout_theme),
+    layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=2, **layout_theme),
     layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
@@ -663,17 +662,9 @@ def taskwarrior():
     )
 
 
-def bluetooth():
-    return (
-        subprocess.check_output(["./.config/qtile/system-bluetooth-bluetoothctl.sh"])
-        .decode("utf-8")
-        .strip()
-    )
-
-
 ### Mouse_callback functions
 def open_launcher():
-    qtile.cmd_spawn("./.config/rofi/launchers/ribbon/launcher.sh")
+    qtile.cmd_spawn("./.config/rofi/launchers/colorful/launcher.sh")
 
 
 def finish_task():
@@ -697,7 +688,7 @@ def toggle_bluetooth():
 
 
 def open_bt_menu():
-    qtile.cmd_spawn("blueman")
+    qtile.cmd_spawn("blueberry")
 
 
 def open_connman():
@@ -767,7 +758,7 @@ screens = [
                 ),
                 widget.GroupBox(
                     font="Font Awesome 5 Free Solid",
-                    visible_groups=["", "", ""],
+                    visible_groups=["", "", ""],
                     **group_box_settings,
                 ),
                 widget.TextBox(
@@ -855,23 +846,17 @@ screens = [
                     foreground=colors[12],
                     width=bar.CALCULATED,
                     empty_group_string="Desktop",
-                    max_chars=165,
+                    max_chars=130,
                     mouse_callbacks={"Button2": kill_window},
                 ),
-                widget.CheckUpdates(
-                    background=colors[0],
-                    foreground=colors[3],
-                    colour_have_updates=colors[3],
-                    custom_command="./.config/qtile/updates-arch-combined",
-                    display_format=" {updates}",
-                    execute=update,
-                    padding=20,
-                ),
-                # widget.GenPollText(
-                #    func=updates,
-                #    update_interval=300,
+                # widget.CheckUpdates(
+                #    background=colors[0],
                 #    foreground=colors[3],
-                #    mouse_callbacks={"Button1": update},
+                #    colour_have_updates=colors[3],
+                #    custom_command="./.config/qtile/updates-arch-combined",
+                #    display_format=" {updates}",
+                #    execute=update,
+                #    padding=20,
                 # ),
                 widget.Spacer(),
                 widget.TextBox(
@@ -881,20 +866,20 @@ screens = [
                     fontsize=28,
                     padding=0,
                 ),
-                # widget.Systray(icon_size=24, background=colors[14], padding=10),
-                CustomPomodoro(
-                    background=colors[14],
-                    fontsize=24,
-                    color_active=colors[3],
-                    color_break=colors[6],
-                    color_inactive=colors[10],
-                    timer_visible=False,
-                    prefix_active="",
-                    prefix_break="",
-                    prefix_inactive="",
-                    prefix_long_break="",
-                    prefix_paused="",
-                ),
+                widget.Systray(icon_size=26, background=colors[14], padding=10),
+                # CustomPomodoro(
+                #    background=colors[14],
+                #    fontsize=24,
+                #    color_active=colors[3],
+                #    color_break=colors[6],
+                #    color_inactive=colors[10],
+                #    timer_visible=False,
+                #    prefix_active="",
+                #    prefix_break="",
+                #    prefix_inactive="",
+                #    prefix_long_break="",
+                #    prefix_paused="",
+                # ),
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -941,36 +926,42 @@ screens = [
                     padding=10,
                     size_percent=50,
                 ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[14],
-                    background=colors[0],
-                    fontsize=28,
-                    padding=0,
-                ),
-                widget.GenPollText(
-                    func=bluetooth,
-                    background=colors[14],
-                    foreground=colors[6],
-                    update_interval=3,
-                    mouse_callbacks={
-                        "Button1": toggle_bluetooth,
-                        "Button3": open_bt_menu,
-                    },
-                ),
-                widget.TextBox(
-                    text="",
-                    foreground=colors[14],
-                    background=colors[0],
-                    fontsize=28,
-                    padding=0,
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    foreground=colors[2],
-                    padding=10,
-                    size_percent=50,
-                ),
+                #widget.TextBox(
+                #   text="",
+                #   foreground=colors[14],
+                #   background=colors[0],
+                #   fontsize=28,
+                #   padding=0,
+                #),
+                #widget.TextBox(
+                #    text=" ",
+                #    foreground=colors[6],
+                #    background=colors[14],
+                #    font="Font Awesome 5 Free Brands",
+                #    # fontsize=38,
+                #),
+                #widget.Bluetooth(
+                #    background=colors[14],
+                #    foreground=colors[6],
+                #    hci="/dev_00_0A_45_0D_24_47",
+                #    mouse_callbacks={
+                #       "Button1": toggle_bluetooth,
+                #       "Button3": open_bt_menu,
+                #    },
+                #),
+                #widget.TextBox(
+                #   text="",
+                #   foreground=colors[14],
+                #   background=colors[0],
+                #   fontsize=28,
+                #   padding=0,
+                #),
+                #widget.Sep(
+                #   linewidth=0,
+                #   foreground=colors[2],
+                #   padding=10,
+                #   size_percent=50,
+                #),
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -985,7 +976,7 @@ screens = [
                     background=colors[14],
                 ),
                 widget.Wlan(
-                    interface="wlan0",
+                    interface="wlp3s0",
                     format="{essid}",
                     foreground=colors[7],
                     background=colors[14],
@@ -1053,7 +1044,7 @@ screens = [
                     format="%I:%M %p",
                     foreground=colors[4],
                     background=colors[14],
-                    # mouse_callbacks={"Button1": todays_date},
+                    #    mouse_callbacks={"Button1": todays_date},
                 ),
                 widget.TextBox(
                     text="",
@@ -1132,10 +1123,10 @@ floating_layout = layout.Floating(
         Match(wm_class="pomotroid"),
         Match(wm_class="cmatrixterm"),
         Match(title="Farge"),
-        Match(wm_class="thunar"),
+        Match(wm_class="org.gnome.Nautilus"),
         Match(wm_class="feh"),
-        Match(wm_class="galculator"),
-        Match(wm_class="blueman-manager"),
+        Match(wm_class="gnome-calculator"),
+        Match(wm_class="blueberry"),
     ],
 )
 auto_fullscreen = True

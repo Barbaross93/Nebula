@@ -1,3 +1,9 @@
+# Auto start xorg
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx &>/dev/null
+fi
+
+
 # Random cowsay with random fortune
 #fortune -a | fmt -80 -s | $(shuf -n 1 -e cowsay cowthink) -$(shuf -n 1 -e b d g p s t w y) -f $(shuf -n 1 -e $(cowsay -l | tail -n +2)) -n
 #fortune -a | cowsay -f moose
@@ -96,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='emacs -nw'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -125,36 +131,34 @@ alias li="exa --icons"
 #alias tncmpcpp='tmux new-session "tmux source-file ~/.ncmpcpp/tmux_session"'
 #alias ueberncmpcpp='~/.ncmpcpp/ncmpcpp-ueberzug/ncmpcpp-ueberzug'
 #alias spotify='tmux new-session "tmux source-file ~/.config/spotifyd/tmux_session"'
+#alias happyanniversary="cat For_my_lovebug | pv -qL 12"
+#alias happybirthday="cat happy_birthday_boo"
 #alias cligoogle="BROWSER=w3m googler"
 alias clip="xclip -sel clip"
 alias logout="kill -9 -1"
 alias ttcmd="echo '' | fzf -q '$*' --prompt '│ ' --pointer '― ' --preview-window=up:99% --preview='eval {q}'"
-alias startvpn="sudo openconnect vpn.som.umaryland.edu 2 >/dev/null &"
-alias stopvpn="pkill openconnect"
+alias startvpn="pass sshthanos | sudo openconnect vpn.som.umaryland.edu -b -q --user=cullen.ross --authgroup SOM-Multifactor --passwd-on-stdin --servercert pin-sha256:zWuWUmGaQEWraG+Xvv6uF58rrupSRmqCzeNioSDEaaI="
+alias stopvpn="sudo pkill openconnect"
 alias sshthanos="ssh cullen.ross@thanos.igs.umaryland.edu"
 alias fet="info='n user os sh wm kern pkgs term col' separator=' | ' accent='2' fet.sh"
 #alias bm="bashmount"
-alias fm="setsid -f thunar"
-#alias vim="nvim"
-alias c="bc -l"
+alias fm="setsid -f nautilus $(pwd)"
+alias vim="nvim"
+#alias c="eva"
 alias btop="bpytop"
 alias yayinst="yay -Slq | fzf -m --preview 'yay -Si {1}' | xargs -ro sudo yay -S"
 #alias r="ranger"
 alias cat="bat"
 alias pfetch="curl -s https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch | sh"
-alias doom="~/.emacs.d/bin/doom"
-alias e="emacs"
-alias et="TERM=xterm-24bit emacs -nw"
+#alias doom="~/.emacs.d/bin/doom"
+#alias e="emacs"
+#alias et="TERM=xterm-24bit emacs -nw"
 #alias navi="navi --fzf-overrides '--reverse  --color fg:7,bg:-1,hl:6,fg+:6,bg+:-1,hl+:6,info:2,prompt:1,spinner:5,pointer:5,marker:3,header:8'"
 alias qtilecheck="python3 -m py_compile ~/.config/qtile/config.py"
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-#(cat ~/.cache/wal/sequences &)
-
-# To add support for TTYs this line can be optionally added.
-#source ~/.cache/wal/colors-tty.sh
+alias yay="paru"
+alias sshpi="ssh pi@192.168.0.18"
+alias piunmount="ssh pi@192.168.0.18 sudo /mnt/fd1/unmount.sh"
+alias backupssh="rsync -a --delete --quiet -e ssh / pi@192.168.0.18:/media/RaspberryPi/Genome"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -482,3 +486,6 @@ lf () {
     fi
 }
 
+zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==35=35}:${(s.:.)LS_COLORS}")';
+zstyle ':completion:*:descriptions' format $'\e[01;33m %d\e[0m'
+zstyle ':completion:*:messages' format $'\e[01;31m %d\e[0m'

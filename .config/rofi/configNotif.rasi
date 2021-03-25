@@ -81,7 +81,7 @@ element {
 }
 
 prompt {
-       padding:     20px 0px 0px 25px;
+       padding:     35px 20px 20px 25px;
        font:        "monospace 18";
 }
 

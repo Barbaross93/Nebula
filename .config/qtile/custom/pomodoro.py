@@ -191,7 +191,7 @@ class Pomodoro(base.ThreadPoolText):
             self.status = self.STATUS_START
 
     def _send_notification(self, urgent, message):
-        send_notification("Pomodoro", message, urgent=urgent)
+        send_notification("Pomodoro", message, urgent=None)
 
     def poll(self):
         return self.fmt.format(self._get_text())

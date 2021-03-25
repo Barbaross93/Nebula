@@ -52,7 +52,7 @@ button {
 .musictitle {
   font-size: 24px;
   font-weight: bold;
-  margin-top: 50px;
+  //margin-top: 80px;
   margin-bottom: 10px;
   margin-right: 30px;
   color: #a3be8c;
@@ -76,7 +76,8 @@ button {
   margin-right: 30px;
 }
 .musicbtn button {
-  font-size: 56px;
+  font-size: 24px;
+  font-family: icons;
   color: #434c5e;
 }
 
@@ -140,6 +141,16 @@ button {
   margin-bottom: 40px;
   margin-right: 30px;
   //color: #88c0d0;
+}
+
+.thermometer {
+  font-family: icons;
+  font-size: 72px;
+  font-weight: 900;
+  margin-top: 55px;
+  margin-bottom: 40px;
+  margin-right: 30px;
+  color: #d08770;
 }
 
 //system-info

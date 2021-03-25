@@ -1,0 +1,19 @@
+#New path
+export PATH="/home/barbarossa/.local/bin:$PATH"
+
+#default editor
+export EDITOR="/usr/bin/nvim"
+
+#Default browser
+export BROWSER=/usr/bin/firefox-nightly
+
+# Spotipy variables
+export SPOTIPY_CLIENT_ID="$(pass spotipy/client_id)"
+export SPOTIPY_CLIENT_SECRET="$(pass spotipy/client_secret)"
+export SPOTIPY_REDIRECT_URI="http://localhost:8888/callback"
+
+#Harmony between qt5 and gtk
+#export QT_QPA_PLATFORMTHEME=gtk2
+
+#For gtk icons in qt themes
+#export DESKTOP_SESSION=gnome

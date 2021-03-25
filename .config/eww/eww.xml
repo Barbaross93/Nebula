@@ -3,8 +3,8 @@
   <definitions>
     <def name="player">
           <box orientation="h" space-evenly="false" class="player">
-            <box class="musicart" halign="center" valign="center" style="background-image: url('/tmp/spotify/cover.png');">{{art}}</box>
-            <box orientation="v" class="music-info" align="center" halign="center" space-evenly="false">
+            <box class="musicart" halign="center" valign="center" style="background-image: url('{{cover}}');">{{art}}</box>
+            <box orientation="v" class="music-info" valign="center" halign="center" space-evenly="false">
               <box class="musictitle">{{music3}}</box>
               <box class="musicalbum">{{music2}}</box>
               <box class="musicartist">{{music}}</box>
@@ -12,6 +12,7 @@
                   <button onclick="playerctl previous"></button> 
                   <button onclick="playerctl play-pause">{{musicstat}}</button>
                   <button onclick="playerctl next"></button>
+                  <button onclick="cd ~/.config/eww/scripts/spotify/ && ./spotify_to_like_or_not.sh -c &">{{like_status}}</button>
               </box>
               <scale min="0" max="{{duration}}" active="false" value="{{position}}" class="progress-bar"/>
               </box>
@@ -45,19 +46,19 @@
                 <image path="/home/barbarossa/Pictures/barbarossaCircle.png" width="200" height="200" class="pfp" ></image>
             </box>
             <box orientation="v" space-evenly="false"> 
-                <box class="pfptxt" valign="center">Barbarossa</box>
-                <box class="subpfptxt" halign="center">@Genome</box>
+                <box class="pfptxt" valign="center">{{user}}</box>
+                <box class="subpfptxt" halign="center">@{{host}}</box>
             </box>
         </box>
     </def>
     <def name="launch">
       <box orientation="v" space-evenly="false" class="launch">
         <box orientation="h" halign="center" class="launch1" space-evenly="false">
-          <button class="internet" onclick="wmctrl -xa firefox || setsid -f firefox"></button>
-          <button class="mail" onclick="wmctrl -xa thunderbird || setsid -f thunderbird"></button>
+          <button class="internet" onclick="wmctrl -xa firefox-nightly || setsid -f firefox-nightly"></button>
+          <button class="mail" onclick="wmctrl -xa geary || setsid -f geary"></button>
           <button class="music" onclick="wmctrl -xa spotify || setsid -f spotify"></button>
-          <button class="file" onclick="setsid -f thunar"></button>
-          <button class="editor" onclick="wmctrl -xa emacs || setsid -f emacs"></button>
+          <button class="file" onclick="setsid -f nautilus"></button>
+          <button class="editor" onclick="wmctrl -xa code || setsid -f code"></button>
         </box>
         <box orientation="h" halign="center" class="launch2" space-evenly="false">
           <button class="pomo" onclick="wmctrl -xa joplin || setsid -f joplin-desktop"></button>
@@ -72,7 +73,10 @@
         <box orientation="h"  space-evenly="false" class="weather">
             <box class="weather-icon-side" style="color: {{weather-hex}}">{{weather-icon}}</box>
             <box class="weather-info-side" orientation="v" space-evenly="false">
-                <label class="temperature-side" markup="{{temperature}} {{pango}}"></label>
+                <box class="temp-info" orientation="h" halign="center" space-evenly="false">
+                  <box class="temperature-side">{{temperature}}</box>
+                  <box class="thermometer"></box>
+                  </box>
                 <box class="weather-stat-side">{{weather-stat-side}}</box>
                 <box class="weather-quote1">{{weather-quote}}</box>
             </box>
@@ -99,14 +103,17 @@
     <script-var name="musicstat" interval="1s">~/.local/bin/spotifystatus</script-var>
     <script-var name="position" interval="3s">current_track.py | jq -r '.progress_ms'</script-var>
     <script-var name="duration" interval="2s">current_track.py | jq -r '.item.duration_ms'</script-var>
-    <!--<script-var name="cover" interval="5s">~/.config/eww/scripts/echoart</script-var>-->
-    <script-var name="art">~/.config/eww/scripts/getart</script-var>
+    <script-var name="cover" interval="1s">~/.config/eww/scripts/echoart</script-var>
+    <script-var name="art" interval="1s">~/.config/eww/scripts/getart || cp ~/.config/eww/images/image.png /tmp/spotify/cover.png</script-var>
+    <script-var name="like_status" interval="1s">~/.config/eww/scripts/spotify/spotify_to_like_or_not.sh -s</script-var>
     <!-- Calendar vars -->
     <!-- System info vars -->
     <script-var name="cpu-used" interval="1s">~/.config/eww/scripts/getcpu</script-var>
     <script-var name="ram-used" interval="1s">~/.config/eww/scripts/getram</script-var>
     <script-var name="hdd-used" interval="5s">~/.config/eww/scripts/gethdd</script-var>
-    <!-- Profile vars? -->
+    <!-- Profile vars -->
+    <script-var name="user" interval="1h">echo $USER</script-var>
+    <script-var name="host" interval="1h">uname -n</script-var>
     <!-- Launcher vars -->
     <!-- Weather vars -->
     <script-var name="weather-icon" interval="5s">cat /tmp/weather/weather-icon</script-var>
@@ -123,7 +130,7 @@
   </variables>
   <windows>
       <window name="main_bottom">
-          <geometry anchor="bottom center" y="12px"/>
+        <geometry anchor="bottom center" y="12px"/>
           <widget>
               <box class="main_box" orientation="h" space-evenly="false">
                 <profile/>
