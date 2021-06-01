@@ -1,0 +1,34 @@
+#!/bin/sh
+
+if [ "$(acpi | wc -l)" = "1" ];
+then
+	if [ "$(acpi | awk NR==1 | awk '{print $3}')" = "Charging," ];
+		then
+			time=$(acpi | awk NR==1 | awk '{print $5, $6, $7}')
+			notify-send -u normal -t 3000 " $time"
+			#dunstify -u normal -t 3000 -r 8712 " $time"
+		elif [ "$(acpi | awk NR==1 | awk '{print $3}')" = "Full," ]
+		then
+			notify-send -u normal -t 3000 " Full"
+			#dunstify -u normal -t 3000 -r 8712 " Full"
+		else
+			discharge_time=$(acpi | awk NR==1 | awk '{print $5, $6}')
+			notify-send -u normal -t 3000 " $discharge_time"
+			#dunstify -u normal -t 3000 -r 8712 " $discharge_time"
+	fi
+else
+	if [ "$(acpi | awk NR==2 | awk '{print $3}')" = "Charging," ];
+		then
+			time=$(acpi | awk NR==2 | awk '{print $5, $6, $7}')
+			notify-send -u normal -t 3000 " $time"
+			#dunstify -u normal -t 3000 -r 8712 " $time"
+		elif [ "$(acpi | awk NR==2 | awk '{print $3}')" = "Full," ]
+		then
+			notify-send -u normal -t 3000 " Full"
+			#dunstify -u normal -t 3000 -r 8712 " Full"
+		else
+			discharge_time=$(acpi | awk NR==2 | awk '{print $5, $6}')
+			notify-send -u normal -t 3000 " $discharge_time"
+			#dunstify -u normal -t 3000 -r 8712 " $discharge_time"
+	fi
+fi

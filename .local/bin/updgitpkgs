@@ -1,0 +1,9 @@
+#!/bin/sh
+
+list=$(pacman -Qm | grep git | awk '{print $1}')
+
+for pkg in $list; do
+	pkgs="$pkgs $pkg"
+done
+
+yay -S $pkgs

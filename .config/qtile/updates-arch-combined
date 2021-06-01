@@ -11,8 +11,9 @@ fi
 updates=$(("$updates_arch" + "$updates_aur"))
 
 if [ "$updates" -gt 0 ]; then
-    seq "$updates"
-    #echo "<span foreground='#3b4252'> | </span><span font_desc='Font Awesome 5 Free Solid' foreground='#bf616a'></span> $updates"
+    #echo "$updates"
+    #seq "$updates"
+    echo "<span foreground='#3b4252'> | </span><span font_desc='Font Awesome 5 Free Solid' foreground='#bf616a'></span> $updates"
     #echo "%{F#bf616a}%{F-} $updates"
 fi
 

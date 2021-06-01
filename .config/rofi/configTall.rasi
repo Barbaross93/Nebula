@@ -1,6 +1,8 @@
 configuration {
 	display-drun:    " Apps";
-	display-window:  "缾 Windows";
+	display-window:  "缾";
+	display-windowcd:  "缾";
+	display-file-browser-extended: "";
 	show-icons:true;
 	font: "monospace 16";
 }
@@ -9,10 +11,10 @@ configuration {
 	background-color:            #2e3440;
     bg:                          #232831;
 	text-color:                  #eceff4;
-	selbg:                       #66cccc;
+	selbg:                       #8fbcbb;
 	actbg:                       #4c566a;
 	urgbg:                       #bf616a;
-	winbg:                       #66cccc;
+	winbg:                       #8fbcbb;
 
 	selected-normal-foreground:  @winbg;
 	normal-foreground:           @text-color;
@@ -43,7 +45,7 @@ window {
 	height:		 85%;
     //y-offset:    3%;
     x-offset:    -12px;
-	width:		 30%;
+	width:		 25%;
 	orientation: horizontal;
 	children:	 [mainbox];
     border-radius: 12px;

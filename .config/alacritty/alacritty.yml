@@ -150,7 +150,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -164,7 +164,7 @@ font:
   # right, increasing `y` moves the glyph upward.
   glyph_offset:
     x: 0
-    y: -1
+    y: 0
 
   # Thin stroke font rendering (macOS only)
   #
@@ -224,6 +224,17 @@ colors:
     magenta: '#8c738c'
     cyan: '#6d96a5'
     white: '#aeb3bb'
+
+  # Indexed Colors
+  #
+  # The indexed colors include all colors from 16 to 256.
+  # When these are not set, they're filled with sensible defaults.
+  #
+  # Example:
+  #   `- { index: 16, color: '#ff00ff' }`
+  #
+  indexed_colors:
+    - { index: 16, color: '#242831' }
 
 #Colors (Tomorrow night)
 #colors:

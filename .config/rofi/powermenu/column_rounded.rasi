@@ -86,7 +86,7 @@ element {
 }
 
 element-text {
-	font:							"feather 32";
+	  font:							"Font Awesome 5 Free Solid 32";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;

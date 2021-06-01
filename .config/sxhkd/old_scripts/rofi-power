@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess as sp
+
+if __name__ == "__main__":
+
+    commands = {
+        "⭤ Lock": "lock",
+        "↵Logout": "kill -9 -1",
+        "⏼ Hibernate": "systemctl hibernate",
+        " Reboot": "systemctl reboot",
+        "⏻Shutdown": "systemctl poweroff",
+    }
+
+    if "LOCKPRG" in os.environ:
+        commands["Lock"] = os.environ["LOCKPRG"]
+
+    if "EXITPRG" in os.environ:
+        commands["Exit"] = os.environ["EXITPRG"]
+
+    options = commands.keys()
+    title = ""
+    rofi = f"rofi -config ~/.config/rofi/powermenu.rasi -width 300 -lines 5 -dmenu -i -p {title}".split()
+    rofi_input = "\n".join(x for x in options)
+
+    cp = sp.run(rofi, input=rofi_input, encoding="utf-8", capture_output=True)
+    if cp.returncode == 0:
+        selection = cp.stdout.strip()
+        if selection in commands:
+            sp.run(commands[selection].split())

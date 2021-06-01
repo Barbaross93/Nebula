@@ -3,16 +3,17 @@ Xcursor.size: 48
 
 Xft.dpi:                        161
 Xft.antialias:                  1
-Xft.autohint:                   0
+Xft.autohint:                   1
 Xft.hinting:                    true
 Xft.hintstyle:                  hintslight
 Xft.rgba:                       rgb
 Xft.lcdfilter:                  lcddefault
 
-#define FONT FiraCode Nerd Font Mono
-#define ICON Font Awesome 5 Free Solid
-#define EMOJI Symbola
-#define NERD_FONT Font Awesome 5 Brands
+#define FONT Fira Code
+#define ICON FiraCode Nerd Font Mono
+#define EMOJI Noto Color Emoji
+#define NERD_FONT Font Awesome 5 Free Solid
+!Font Awesome 5 Brands
 #define FONT_SIZE 9
 #define ICON_SIZE 9
 #define EMOJI_SIZE 9
@@ -36,7 +37,7 @@ URxvt.scrollBar:                false
 URxvt*loginShell:               true
 URxvt.internalBorder:           88
 
-URxvt.perl-ext:	 		        default,matcher,vtwheel,resize-font
+URxvt.perl-ext:	 		        default,matcher,resize-font
 URxvt.url-launcher:             linkhandler
 URxvt.matcher.button: 		    1
 URxvt.keysym.M-r:    		    perl:matcher:last
@@ -72,6 +73,7 @@ URxvt.keysym.Shift-Down:        command:\033]721;1\007
 ! Helps with man/less/pagers
 URxvt.secondaryScreen:          1
 URxvt.secondaryScroll:          0
+URxvt.secondaryWheel:           1
 
 ! Change keybinding for copying/pasting
 URxvt.keysym.Control-Meta-c: builtin-string:
@@ -120,3 +122,17 @@ xterm.vt100.faceName: monospace
 ! stop output to terminal from jumping down to bottom of scroll again
 XTerm*scrollTtyOutput: false
 
+
+! xst configs
+!st.font: spectrum berry:pixelsize=12:antialias=false:autohint=false;,Cozette:pixelsize=12:antialias=false:autohint=false;,Twemoji:pixelsize=10:antialias=true:autohint=true;,FiraCode Nerd Font Mono:pixelsoze=10:antialias=true:autohint=true
+st.font: monospace:pixelsize=20:antialias=true:autohint=true
+st.alpha: 1
+st.borderpx: 44
+st.cursorshape: 3
+st.disablebold: 0
+st.disableitalics: 0
+st.boxdraw: 1
+st.boxdraw_bold: 1
+st.boxdraw_braille: 1
+st.chscale:           1.0
+st.cwscale:           1.0

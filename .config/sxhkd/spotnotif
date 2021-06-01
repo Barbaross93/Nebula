@@ -1,0 +1,22 @@
+#!/bin/sh
+
+sleep 0.1
+status=$(playerctl status)
+
+if [ "$status" = Playing ]; then
+	albumart=$(playerctl metadata mpris:artUrl | sed "s/open\.spotify\.com/i.scdn.co/")
+	albumartfetch=$(curl --output /tmp/cover.png $albumart)
+	#size=420
+	#convert /tmp/large_cover.png -resize "$size"x"$size" /tmp/cover.png
+	info=$(playerctl metadata --format $' Now Playing\n {{ title }}\n {{ artist }}\n {{ album }}')
+	notify-send -t 5000 -u normal -i /tmp/cover.png "$info"	
+	#dunstify -t 5000 -r 7658 -u normal -i /tmp/cover.png "$info"
+elif [ "$status" = Paused ]; then
+	formatted=$' Playback Paused'
+	notify-send -t 3000 -u normal "$formatted"
+	#dunstify -t 3000 -r 7658 -u normal "$formatted"
+else
+	notify-send -t 3000 -u normal $'Something else besides play/paused happened.\nUpdate this script fool.'	
+	#dunstify -t 3000 -r 7658 -u normal $'Something else besides play/paused happened.\nUpdate this script fool.'
+fi
+

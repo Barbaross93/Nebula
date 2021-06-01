@@ -2,11 +2,12 @@
 
 if [ "$(dunstctl is-paused)" = "false" ];
 then
-	dunstify -u normal -t 3000 -r 669 " Dunst disabled"
+	dunstify -u normal -a dunst -t 3000 -r 669 "Dunst disabled"
 	sleep 3
 	dunstctl set-paused true
-
+	polybar-msg hook dunst 2
 else
 	 dunstctl set-paused false
-	 dunstify -u normal -t 3000 -r 669 " Dunst enabled"
+	 dunstify -u normal -a dunst -t 3000 -r 669 "Dunst enabled"
+	 polybar-msg hook dunst 1
 fi

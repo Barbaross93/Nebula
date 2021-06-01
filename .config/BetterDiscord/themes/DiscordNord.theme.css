@@ -18,12 +18,6 @@
     --border-radius: 15px;
 }
 
-* {
-  font-family: "FiraCode Nerd Font" !important;
-  font-weight: normal !important;
-  font-size: 9 !important;
-}
-
 .da-video, .da-peopleColumn, .da-tabBody {
     background-color: var(--background-primary);
 }

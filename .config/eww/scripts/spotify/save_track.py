@@ -22,7 +22,7 @@ def get_args():
 
 def main():
     args = get_args()
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, cache_path="/home/barbarossa/.config/eww/scripts/spotify/save_cache/.cache"))
 
     sp.current_user_saved_tracks_add(tracks=args.tids)
 

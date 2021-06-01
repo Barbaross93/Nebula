@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#urxvt -g 75x50 -name "directory" -e zsh -ic "fd --hidden --type directory | fzf --reverse --border=horizontal --no-info --header=' ' --prompt ' │ ' --pointer '― ' -e | grep "\S" | xargs -n1 ranger"
+
+#search=$(urxvt -e zsh -ic "fd --hidden --type directory | fzf --reverse --border=horizontal --no-info --header=' ' --prompt ' │ ' --pointer '― ' -e | grep '\S'")
+
+#urxvt -g 75x50 -name "directory" -e zsh -ic "ranger $(fd --hidden --type directory | fzf --reverse --border=horizontal --no-info --header=' ' --prompt ' │ ' --pointer '― ' -e | grep '\S')"
+termite -e "zsh -ic \"cmd=$(fd --hidden --type directory | fzf --reverse --border=horizontal --no-info --header=' ' --prompt ' │ ' --pointer '― ' -e | grep '\S') && ranger '$cmd'\""

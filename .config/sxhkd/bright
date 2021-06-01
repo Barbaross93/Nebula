@@ -1,0 +1,28 @@
+#!/bin/sh
+color="#afb7d2'>"
+col="<span color='"
+end="</span>"
+FULL=""    #"•"
+EMPTY=""     #"○"
+value="${2:-5}"
+
+case $1 in
+up)
+	busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight RaiseAll "d(bdu)s" 0.05 0 0 0 ""
+	label=""
+	;;
+down)
+	busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight LowerAll "d(bdu)s" 0.05 0 0 0 ""
+	label=""
+	;;
+esac
+
+brightness="$(busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight Get "s" "" | awk '{print $3*100}')"
+#brightnessLevel=$(cat /sys/class/backlight/intel_backlight/actual_brightness)
+#maxBrightness=$(cat /sys/class/backlight/intel_backlight/max_brightness
+#brightness=$(echo "scale=2; ($brightnessLevel/$maxBrightness)*100" | bc)
+brightness=${brightness%.*}
+barFull=$(seq -s "$FULL" $((brightness / 10)) | sed 's/[0-9]//g')
+barEmpty=$(seq -s "$EMPTY" $((11 - brightness / 10)) | sed 's/[0-9]//g')
+echo $brightness > /tmp/xobbacklight
+#dunstify -t 1000 -r 2593 -u normal "$label Brightness: $brightness%" "$col$color$barFull$end$barEmpty"

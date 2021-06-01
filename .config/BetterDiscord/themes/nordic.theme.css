@@ -1,0 +1,38 @@
+/**
+ * @name Nordic
+ * @author orblazer#9152
+ * @version 2.8.12
+ * @description Complete theme for Nordic (https://www.nordtheme.com/)
+ * @source https://github.com/orblazer/discord-nordic
+ * @donate https://www.paypal.me/orblazer
+ * @authorId 179681974879911946
+*/
+
+/**
+ * SOURCE CODE
+ * /!\ DONT TOUCH ! /!\
+ */
+@import url('https://orblazer.github.io/discord-nordic/base.css');
+
+/**
+ * CUSTOMIZATION
+ */
+:root {
+    --nord-dark0: #242831;
+    --nord-primary: var(--nord-turquoise);
+    --border-radius: 15px;
+}
+
+.theme-dark {
+    --background-primary: var(--nord-dark1);
+    --background-secondary: var(--nord-dark0);
+    --background-secondary-alt: var(--nord-dark0);
+    --background-tertiary: var(--nord-dark1);
+}
+
+.theme-light {
+}
+
+.sidebar-2K8pFh, .members-1998pB, .title-3qD0b- {
+    border-radius: var(--border-radius);
+}

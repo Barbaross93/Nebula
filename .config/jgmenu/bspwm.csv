@@ -1,0 +1,109 @@
+Bspwm,,window
+^sep()
+State,^checkout(state)
+Move to...,^checkout(move)
+Orientation,^checkout(orientation)
+Preselect,^checkout(preselect)
+Hide,^checkout(hide)
+Tab,^checkout(tab)
+^sep()
+Close,bspc node -c
+Kill,bspc node -k
+
+^tag(state)
+Tiled,bspc node -t tiled
+Monocle,bspc desktop -l monocle
+^sep()
+Floating,bspc node -t floating
+Fullscreen,bspc node -t fullscreen
+Pseudotiled,bspc node -t pseudo_tiled
+Lock,bspc node -g locked
+Sticky,bspc node -g sticky
+Private,bspc node -g private
+Mark,bspc node -g marked
+
+^tag(move)
+Desktop...,^checkout(desktop)
+
+^tag(desktop)
+One,bspc node -d focused:'^1'
+Two,bspc node -d focused:'^2'
+Three,bspc node -d focused:'^3'
+Four,bspc node -d focused:'^4'
+Five,bspc node -d focused:'^5'
+Six,bspc node -d focused:'^6'
+Seven,bspc node -d focused:'^7'
+Eight,bspc node -d focused:'^8'
+Nine,bspc node -d focused:'^9'
+Ten,bspc node -d focused:'^10'
+
+^tag(orientation)
+Flip,^checkout(flip)
+Rotate,^checkout(rotate)
+Circulate, ^checkout(circle)
+^sep()
+Balance,bspc node @/ -B
+Equalize,bspc node @/ -E
+
+^tag(flip)
+Vertical,bspc node @/ -F vertical
+Horizontal,bspc node @/ -F horizontal
+
+^tag(rotate)
+90°,bspc node @/ -R 90
+180°,bspc node @/ -R 180
+270°,bspc node @/ -R 270
+
+^tag(circle)
+Forward,bspc node @/ -C forward
+Backward,bspc node @/ -C backward
+
+^tag(preselect)
+Direction,^checkout(direction)
+Ratio,^checkout(ratio)
+^sep()
+Cancel,bspc node -p cancel
+
+^tag(direction)
+Up,bspc node -p north
+Right,bspc node -p east
+Down,bspc node -p south
+Left,bspc node -p west
+
+^tag(ratio)
+25%,bspc node -o 0.25
+50%,bspc node -o 0.5
+75%,bspc node -o 0.75
+
+^tag(hide)
+Hide,bspc node -g hidden
+Unhide,rofi-bsphidwins
+Hide all,hideall
+Unhide all,unhideall
+
+^tag(tab)
+Create tabbed window,bsptab tab focused
+Add in direction,^checkout(tab_direction)
+Tab all windows,bsptab add-all focused
+Move tab to desktop,^checkout(tab_desktop)
+^sep()
+Remove window,bsptab remove focused
+Remove all windows,bsptab remove-all focused
+
+^tag(tab_direction)
+Up,bsptab add north.local focused
+Right,bsptab add east.local focused
+Down,bsptab add south.local focused
+Left,bsptab add west.local focused
+
+^tag(tab_desktop)
+One,bsptab remove-desktop focused 1
+Two,bsptab remove-desktop focused 2
+Three,bsptab remove-desktop focused 3
+Four,bsptab remove-desktop focused 4
+Five,bsptab remove-desktop focused 5
+Six,bsptab remove-desktop focused 6
+Seven,bsptab remove-desktop focused 7
+Eight,bsptab remove-desktop focused 8
+Nine,bsptab remove-desktop focused 9
+Ten,bsptab remove-desktop focused 10

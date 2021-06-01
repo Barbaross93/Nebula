@@ -11,7 +11,7 @@
 
     #geometry = "262x5-829-46"
     #geometry = "262x3-14+46"
-    geometry = "800x4-14+66"    
+    geometry = "800x4-14+74"    
     indicate_hidden = yes
     shrink = true
     transparency = 0
@@ -82,7 +82,7 @@
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/python.svg
 
 [pomodoro]
-    summary = Pomodoro
+    appname = Pomod
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/pomodoro-indicator.svg
 
 [slack]
@@ -93,19 +93,27 @@
     appname = dunst
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
 
+[notify_send_icon]
+    appname = notify-send
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/bell.svg
+
 [giph]
     appname = giph
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/simplescreenrecorder.svg
+
+[zsh]
+    appname = zsh
+    new_icon = /usr/share/icons/Nord-Icon/48x48/apps/terminal.svg
 
 [giph_summary]
     summary = giph
     new_icon = /usr/share/icons/Nord-Icon/48x48/apps/simplescreenrecorder.svg
     
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    #context = ctrl+shift+period
-    history = ctrl+grave
+#[shortcuts]
+#    close = ctrl+space
+#    close_all = ctrl+shift+space
+#    #context = ctrl+shift+period
+#    history = ctrl+grave
 
 [urgency_low]
     background = colors.background

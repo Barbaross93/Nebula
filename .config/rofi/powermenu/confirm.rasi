@@ -9,11 +9,11 @@
 }
 
 window {
-    width:      			260px;
+    width:      			310px;
     padding:    			25px;
-    border:					1px;
-    border-radius:          8px;
-    border-color:           @border;
+    border:					3px;
+    border-radius:          12px;
+    border-color:           #3b4252;
     location:               center;
     y-offset:               -2em;
 }

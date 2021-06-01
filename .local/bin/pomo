@@ -1,0 +1,68 @@
+#!/bin/zsh
+
+while true; do
+	for i in {1..4}; do
+		peaclock --config "./.peaclock/config/pomowork"
+		while true; do
+			vared -p 'Continue? (y/n): ' -c confirm
+			if [[ $confirm == [yY] || $confirm == [yY][Ee][sS] ]]; then
+				if [[ $i = 4 ]]; then
+					break
+				fi
+				unset confirm
+				peaclock --config "./.peaclock/config/pomoshortbreak"
+				while true; do
+					vared -p 'Continue? (y/n): ' -c confirm
+					if [[ $confirm == [yY] || $confirm == [yY][Ee][sS] ]]; then
+						unset confirm
+						break
+					elif [[ $confirm == [nN] || $confirm == [nN][oO] ]];then
+						tput reset
+						exit 0
+					else
+						unset confirm
+						echo "Invalid input."
+						continue
+					fi
+				done
+				break
+			elif [[ $confirm == [nN] || $confirm == [nN][oO] ]];then
+				tput reset
+				exit 0
+			else
+				unset confirm
+				echo "Invalid input"
+				continue
+			fi
+		done
+	done
+	while true; do
+		if [[ $confirm == [yY] || $confirm == [yY][Ee][sS] ]]; then
+			unset confirm
+			peaclock --config "./.peaclock/config/pomolongbreak"
+			while true; do
+				vared -p 'Continue? (y/n): ' -c confirm
+				if [[ $confirm == [yY] || $confirm == [yY][Ee][sS] ]]; then
+					unset confirm
+					break
+				elif [[ $confirm == [nN] || $confirm == [nN][oO] ]];then
+					tput reset
+					exit 0
+				else
+					unset confirm
+					echo "Invalid input."
+					continue
+				fi
+			done
+			break
+		elif [[ $confirm == [nN] || $confirm == [nN][oO] ]];then
+			tput reset
+			exit 0
+		else
+			unset confirm
+			echo "Invalid input"
+			vared -p 'Continue? (y/n): ' -c confirm
+			continue
+		fi
+	done
+done

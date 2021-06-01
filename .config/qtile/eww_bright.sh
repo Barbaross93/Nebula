@@ -4,7 +4,7 @@ set -euo pipefail
 if [ -p /tmp/bright ]; then
     true
 else
-    mkfifo /tmp/bright && echo "$(busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight Get \"s\" \"\" | awk '{print $3*100}')" > /tmp/bright
+    mkfifo /tmp/bright && echo "$(light)" > /tmp/bright
 fi
 
 script_name="eww_bright.sh"
@@ -24,16 +24,16 @@ fi
 
 case $1 in
 up)
-	busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight RaiseAll "d(bdu)s" 0.05 0 0 0 ""
+	light -A 5
 	label=""
 	;;
 down)
-	busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight LowerAll "d(bdu)s" 0.05 0 0 0 ""
+	light -U 5
 	label=""
 	;;
 esac
 
-busctl call org.clightd.clightd /org/clightd/clightd/Backlight org.clightd.clightd.Backlight Get "s" "" | awk '{print $3*100}' > /tmp/bright
+light > /tmp/bright
 
 while [ -n "$eww_wid" ]; do
     duration=$(( SECONDS - start ))

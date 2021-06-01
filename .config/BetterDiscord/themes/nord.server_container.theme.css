@@ -1,0 +1,39 @@
+/**
+ * @name [Nord] Sever container
+ * @author SensualPudding
+ * @version 1
+ * @description All customazations regarding the sever container
+ * @source https://github.com/SensualPudd/Discord-Nord-theme
+*/
+
+/*removes "public" button*/
+#bd-pub-li, #bd-pub-button{
+    display: none;
+}
+
+/*transparent background of folders*/
+.folderIconWrapper-226oVY{
+    background: transparent!important;
+}
+
+/*
+Start "Add server" and "Explore public server" buttons
+*/
+.circleIcon-jET_ig, 
+.circleIconButton-jET_ig {
+    color: #81A1C1;
+    background: none;
+}
+
+.circleIcon-jET_ig:hover, 
+.circleIconButton-jET_ig:hover {
+   color: #D8DEE9;
+}
+
+.circleIcon-jET_ig.selected-ugP_am, 
+.circleIconButton-jET_ig.selected-ugP_am {
+    background-color: #81A1C1
+}
+/*
+End "Add server" and "Explore public server" buttons
+*/

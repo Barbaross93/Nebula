@@ -1,0 +1,10 @@
+#!/bin/sh
+
+windows=($(bspc query -N -n .window.hidden))
+index="$(for i in "${!windows[@]}"; do printf "%s %s\n" $i "$(xdotool getwindowname ${windows[i]})"; done | rofi -config ~/.config/rofi/configTall.rasi -dmenu -i -p "Hidden Windows:")" &&
+	if [ "$index" = "" ];
+	then
+		exit 0
+	else
+		bspc node "${windows[${index%% *}]}" -d $(bspc query -D -d); bspc node "${windows[${index%% *}]}" -g hidden=off 
+	fi

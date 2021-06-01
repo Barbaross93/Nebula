@@ -8,14 +8,18 @@
 #wait -n
 #jobs -rp | xargs -r -n1 kill
 
-tmux new-session -d -s matrix timeout 178 pipes.sh -t 1 -r 8000 #cbonsai -i -M 15 -L 150 -b 2 -m "$(fortune -e tao wisdom science medicine)" 
+#tmux new-session -d -s matrix timeout 178 pipes.sh -t 1 -r 8000 #cbonsai -i -M 15 -L 150 -b 2 -m "$(fortune -e tao wisdom science medicine)" 
 #unimatrix -fans 88 -l 'o' -t 178
 
-#alacritty --config-file ~/.config/alacritty/cmatrixterm.yml --class cmatrixterm -e tmux attach -t matrix \; set status off & disown
 #urxvt -name cmatrixterm -e tmux attach -t matrix \; set status off & disown
-alacritty --class cmatrixterm -e tmux attach -t matrix \; set status off & disown
-sleep 0.1
-qtile cmd-obj -o window -f toggle_fullscreen
+
+alacritty -o window.startup_mode=Fullscreen --class cmatrixterm -e bash -c 'sleep 0.2; timeout 178 pipes.sh -t 1 -r 8000'
+#-o window.startup_mode=Fullscreen 
+
+#tmux attach -t matrix \; set status off & disown
+
+#sleep 0.1
+#qtile cmd-obj -o window -f toggle_fullscreen
 #wid=$(xdotool search --classname "cmatrixterm")
 #xdotool windowmove $wid -3 -3
 #xdotool windowsize $wid 100% 100%

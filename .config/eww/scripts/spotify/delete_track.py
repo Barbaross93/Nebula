@@ -16,6 +16,6 @@ else:
     print("Usage: %s track-id ..." % (sys.argv[0],))
     sys.exit()
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, cache_path="/home/barbarossa/.config/eww/scripts/spotify/delete_cache/.cache"))
 results = sp.current_user_saved_tracks_delete(tracks=[tid])
 pprint.pprint(results)

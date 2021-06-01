@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if pidof tiramisu; then
+	notify-send -u normal " Notifications disabled"
+	pkill -f tiramisu
+	#echo -n $'\n'
+else
+	rm /tmp/output
+	rm /tmp/output2
+	tiramisu -j | tee -a /tmp/output /tmp/output2 &
+	notify-send -u normal " Notifications enabled"
+fi

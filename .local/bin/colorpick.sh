@@ -4,5 +4,7 @@ set -euo pipefail
 color=$(gpick -so 2>/dev/null)
 
 if [ -n "$color" ]; then
-    dunstify -i /usr/share/icons/Nord-Icon/48x48/apps/color-picker.svg -a ColorPicker -u normal "$color"
+    random_file=$(mktemp --suffix ".png")
+    convert -size 100x100 xc:"$color" "$random_file"
+    dunstify -i "$random_file" -a ColorPicker -u normal "$color"
 fi

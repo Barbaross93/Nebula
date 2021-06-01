@@ -8,9 +8,9 @@
  */
 
 configuration {
-	font:							"Noto Sans Bold 10";
+	font:							"FiraCode Nerd Font 10";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
+	icon-theme: 					"Nord-Icon";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                false;
@@ -20,11 +20,11 @@ configuration {
 }
 
 * {
-    background:                     #00000060;
-    background-alt:              	#00000000;
-    background-bar:                 #f2f2f215;
-    foreground:                     #f2f2f2EE;
-    accent:			            	#ffffff66;
+    background:                     #24283160;
+    background-alt:              	#24283100;
+    background-bar:                 #3b425260;
+    foreground:                     #e5e9f0EE;
+    accent:			            	#81a1c166;
 }
 
 window {
@@ -41,7 +41,7 @@ prompt {
 	padding: 						0.30% 1% 0% -0.5%;
 	background-color: 				@background-alt;
 	text-color: 					@foreground;
-	font:							"FantasqueSansMono Nerd Font 12";
+	font:							"FiraCode Nerd Font 12";
 }
 
 entry {

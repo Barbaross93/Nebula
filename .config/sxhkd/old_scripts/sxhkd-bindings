@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# A WIP. To be made better in the future.
+
+cmd="\grep -i -A 1 description ""$HOME""/.config/sxhkd/sxhkdrc | sed -e s/--/\ /g"
+case $1 in
+	d) cmd="$cmd -e s/description:\ //gI" && echo -e "$(eval "$cmd")" | rofi -config ~/.config/rofi/old/sxhkd.rasi -dmenu -i -p "";; # If "d" arg is passed, show descriptions without "description: ".
+	e) urxvt -e vim ~/.config/sxhkd/sxhkdrc;; # If "e" arg is passed, edit config with $EDITOR.
+	*) echo -e "$(eval "$cmd")" | rofi -config ~/.config/rofi/old/sxhkd.rasi -dmenu -i -p "";; # If anything (or nothing) is passed, display keybindings like normal.
+esac

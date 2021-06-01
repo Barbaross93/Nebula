@@ -2,67 +2,67 @@
 <eww>
   <definitions>
     <def name="player">
-          <box orientation="h" space-evenly="false" class="player">
-            <box class="musicart" halign="center" valign="center" style="background-image: url('{{cover}}');">{{art}}</box>
-            <box orientation="v" class="music-info" valign="center" halign="center" space-evenly="false">
-              <box class="musictitle">{{music3}}</box>
-              <box class="musicalbum">{{music2}}</box>
-              <box class="musicartist">{{music}}</box>
-              <box orientation="h" halign="center" valign="center" class="musicbtn" space-evenly="false">
-                  <button onclick="playerctl previous"></button> 
-                  <button onclick="playerctl play-pause">{{musicstat}}</button>
-                  <button onclick="playerctl next"></button>
-                  <button onclick="cd ~/.config/eww/scripts/spotify/ && ./spotify_to_like_or_not.sh -c &">{{like_status}}</button>
-              </box>
-              <scale min="0" max="{{duration}}" active="false" value="{{position}}" class="progress-bar"/>
-              </box>
+      <box orientation="h" space-evenly="false" class="player">
+        <box class="musicart" halign="center" valign="center" style="background-image: url('{{cover}}');">{{art}}</box>
+        <box orientation="v" class="music-info" valign="center" halign="center" space-evenly="false">
+          <box class="musictitle">{{music3}}</box>
+          <box class="musicalbum">{{music2}}</box>
+          <box class="musicartist">{{music}}</box>
+          <box orientation="h" halign="center" valign="center" class="musicbtn" space-evenly="false">
+            <button onclick="playerctl -p spotify previous"></button>
+            <button onclick="playerctl -p spotify play-pause">{{musicstat}}</button>
+            <button onclick="playerctl -p spotify next"></button>
+            <button onclick="cd ~/.config/eww/scripts/spotify/ && ./spotify_to_like_or_not.sh -c &">{{like_status}}</button>
           </box>
+          <scale min="0" max="{{duration}}" active="false" value="{{position}}" class="progress-bar"/>
+        </box>
+      </box>
     </def>
     <def name="calendar">
-        <box orientation="v"  space-evenly="false">
-            <box class="time">{{time}}</box>
-            <box class="date">{{date}}</box>
-        </box>
+      <box orientation="v"  space-evenly="false">
+        <box class="time">{{time}}</box>
+        <box class="date">{{date}}</box>
+      </box>
     </def>
     <def name="system_info">
-        <box orientation="v" space-evenly="true" class="sliders-side"> 
-            <box orientation="h" class="slider-cpu-side" space-evenly="false">
-                <box class="label-cpu-side"></box>
-                <scale min="0" active="false" max="100" value="{{cpu-used}}"/>
-            </box>
-            <box orientation="h" class="slider-ram-side" space-evenly="false">
-                <box class="label-ram-side"></box>
-                <scale min="0" active="false" max="100" value="{{ram-used}}"/>
-            </box> 
-            <box orientation="h" class="slider-hdd-side" space-evenly="false">
-                <box class="label-hdd-side"></box>
-                <scale min="0" max="100" active="false" value="{{hdd-used}}"/>
-            </box>
+      <box orientation="v" space-evenly="true" class="sliders-side">
+        <box orientation="h" class="slider-cpu-side" space-evenly="false">
+          <box class="label-cpu-side"></box>
+          <scale min="0" active="false" max="100" value="{{cpu-used}}"/>
         </box>
+        <box orientation="h" class="slider-ram-side" space-evenly="false">
+          <box class="label-ram-side"></box>
+          <scale min="0" active="false" max="100" value="{{EWW_RAM}}"/>
+        </box>
+        <box orientation="h" class="slider-hdd-side" space-evenly="false">
+          <box class="label-hdd-side"></box>
+          <scale min="0" max="100" active="false" value="{{hdd-used}}"/>
+        </box>
+      </box>
     </def>
     <def name="profile">
-        <box orientation="v" space-evenly="false" class="profile">
-            <box orientation="h" space-evenly="true">
-                <image path="/home/barbarossa/Pictures/barbarossaCircle.png" width="200" height="200" class="pfp" ></image>
-            </box>
-            <box orientation="v" space-evenly="false"> 
-                <box class="pfptxt" valign="center">{{user}}</box>
-                <box class="subpfptxt" halign="center">@{{host}}</box>
-            </box>
+      <box orientation="v" space-evenly="false" class="profile">
+        <box orientation="h" space-evenly="true">
+          <image path="/home/barbarossa/Pictures/barbarossaCircle.png" width="200" height="200" class="pfp" ></image>
         </box>
+        <box orientation="v" space-evenly="false">
+          <box class="pfptxt" valign="center">{{user}}</box>
+          <box class="subpfptxt" halign="center">@{{host}}</box>
+        </box>
+      </box>
     </def>
     <def name="launch">
       <box orientation="v" space-evenly="false" class="launch">
         <box orientation="h" halign="center" class="launch1" space-evenly="false">
-          <button class="internet" onclick="wmctrl -xa firefox-nightly || setsid -f firefox-nightly"></button>
+          <button class="internet" onclick="wmctrl -xa chromium || setsid -f chromium"></button>
           <button class="mail" onclick="wmctrl -xa geary || setsid -f geary"></button>
           <button class="music" onclick="wmctrl -xa spotify || setsid -f spotify"></button>
           <button class="file" onclick="setsid -f nautilus"></button>
           <button class="editor" onclick="wmctrl -xa code || setsid -f code"></button>
         </box>
         <box orientation="h" halign="center" class="launch2" space-evenly="false">
-          <button class="pomo" onclick="wmctrl -xa joplin || setsid -f joplin-desktop"></button>
-          <button class="notes" onclick="wmctrl -xa ptask || setsid -f ptask"></button>
+          <button class="pomo" onclick="wmctrl -xa io.elementary.calendar|| setsid -f io.elementary.calendar"></button>
+          <button class="notes" onclick="wmctrl -xa ptask || setsid -f ptask"></button>
           <button class="rstudio" onclick="wmctrl -xa rstudio || setsid -f rstudio-bin"></button>
           <button class="slack" onclick="wmctrl -xa slack || setsid -f slack"></button>
           <button class="terminal" onclick="setsid -f alacritty"></button>
@@ -70,17 +70,17 @@
       </box>
     </def>
     <def name="weather">
-        <box orientation="h"  space-evenly="false" class="weather">
-            <box class="weather-icon-side" style="color: {{weather-hex}}">{{weather-icon}}</box>
-            <box class="weather-info-side" orientation="v" space-evenly="false">
-                <box class="temp-info" orientation="h" halign="center" space-evenly="false">
-                  <box class="temperature-side">{{temperature}}</box>
-                  <box class="thermometer"></box>
-                  </box>
-                <box class="weather-stat-side">{{weather-stat-side}}</box>
-                <box class="weather-quote1">{{weather-quote}}</box>
-            </box>
+      <box orientation="h"  space-evenly="false" class="weather">
+        <box class="weather-icon-side" style="color: {{weather-hex}}">{{weather-icon}}</box>
+        <box class="weather-info-side" orientation="v" space-evenly="false">
+          <box class="temp-info" orientation="h" halign="center" space-evenly="false">
+            <box class="temperature-side">{{temperature}}</box>
+            <box class="thermometer"></box>
+          </box>
+          <box class="weather-stat-side">{{weather-stat-side}}</box>
+          <box class="weather-quote1">{{weather-quote}}</box>
         </box>
+      </box>
     </def>
     <def name="vol">
       <box orientation="v" space-evenly="true" class="vol">
@@ -97,9 +97,9 @@
   </definitions>
   <variables>
     <!-- Player vars -->
-    <script-var name="music" interval="3s">playerctl metadata --format '{{ artist }}'</script-var>
-    <script-var name="music2" interval="3s">playerctl metadata --format '{{ album }}'</script-var>
-    <script-var name="music3" interval="3s">playerctl metadata --format '{{ title }}'</script-var>
+    <script-var name="music" interval="3s">playerctl -p spotify metadata --format '{{ artist }}'</script-var>
+    <script-var name="music2" interval="3s">playerctl -p spotify metadata --format '{{ album }}'</script-var>
+    <script-var name="music3" interval="3s">playerctl -p spotify metadata --format '{{ title }}'</script-var>
     <script-var name="musicstat" interval="1s">~/.local/bin/spotifystatus</script-var>
     <script-var name="position" interval="3s">current_track.py | jq -r '.progress_ms'</script-var>
     <script-var name="duration" interval="2s">current_track.py | jq -r '.item.duration_ms'</script-var>
@@ -109,7 +109,7 @@
     <!-- Calendar vars -->
     <!-- System info vars -->
     <script-var name="cpu-used" interval="1s">~/.config/eww/scripts/getcpu</script-var>
-    <script-var name="ram-used" interval="1s">~/.config/eww/scripts/getram</script-var>
+    <!-- <script-var name="ram-used" interval="1s">~/.config/eww/scripts/getram</script-var> -->
     <script-var name="hdd-used" interval="5s">~/.config/eww/scripts/gethdd</script-var>
     <!-- Profile vars -->
     <script-var name="user" interval="1h">echo $USER</script-var>
@@ -129,48 +129,48 @@
     <script-var name="current-bright">tail -F /tmp/bright</script-var>
   </variables>
   <windows>
-      <window name="main_bottom">
-        <geometry anchor="bottom center" y="12px"/>
-          <widget>
-              <box class="main_box" orientation="h" space-evenly="false">
-                <profile/>
-                <player/>
-                <launch/>
-                <weather/>
-                <system_info/>
-              </box> 
-          </widget>
-      </window>
-      <window name="vol">
-        <geometry height="16%" y="18%" anchor="center"/>
-        <widget>
-          <vol/>
-        </widget>
-      </window>
-      <window name="bright">
-        <geometry height="16%" y="18%" anchor="center"/>
-          <widget>
-            <bright/>
-          </widget>
-      </window>
-      <window name="border">
-        <geometry height="3px" width="102%" y="48px" anchor="top center"/>
-          <widget>
-            <box class="border" style="color: #3b4252">
-            </box>
-          </widget>
-      </window>
-      <window name="border1">
-        <geometry height="7px" width="102%" anchor="top center"/>
-        <widget>
-          <box class="border1" style="color: #2e3440"/>
-        </widget>
-      </window> 
-      <window name="border2">
-        <geometry height="7px" y="41px" width="102%" anchor="top center"/>
-        <widget>
-          <box class="border1" style="color: #2e3440"/>
-        </widget>
-      </window>
+    <window name="main_bottom">
+      <geometry anchor="bottom center" y="12px"/>
+      <widget>
+        <box class="main_box" orientation="h" space-evenly="false">
+          <profile/>
+          <player/>
+          <launch/>
+          <weather/>
+          <system_info/>
+        </box>
+      </widget>
+    </window>
+    <window name="vol">
+      <geometry height="16%" y="18%" anchor="center"/>
+      <widget>
+        <vol/>
+      </widget>
+    </window>
+    <window name="bright">
+      <geometry height="16%" y="18%" anchor="center"/>
+      <widget>
+        <bright/>
+      </widget>
+    </window>
+    <window name="border" stacking="bg">
+      <geometry height="3px" width="102%" y="56px" anchor="top center"/>
+      <widget>
+        <box class="border" style="color: #3b4252">
+        </box>
+      </widget>
+    </window>
+    <window name="border1">
+      <geometry height="11px" width="102%" anchor="top center"/>
+      <widget>
+        <box class="border1" style="color: #2e3440"/>
+      </widget>
+    </window>
+    <window name="border2">
+      <geometry height="11px" y="45px" width="102%" anchor="top center"/>
+      <widget>
+        <box class="border1" style="color: #2e3440"/>
+      </widget>
+    </window>
   </windows>
 </eww>

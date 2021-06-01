@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+import subprocess
+
+if __name__ == "__main__":
+
+    fdcmd = "fd --hidden"
+    files = subprocess.run(
+        fdcmd.split(), encoding="utf-8", capture_output=True
+    ).stdout.split("\n")
+
+    title = ""
+    rofi_command = "rofi -theme ~/.config/rofi/configTall.rasi -dmenu -i -p {}".format(
+        title
+    )
+    rofi_input = "\n".join(file for file in files)
+    cp = subprocess.run(
+        rofi_command.split(), input=rofi_input, encoding="utf-8", capture_output=True
+    )
+
+    if cp.returncode == 0:
+        file = cp.stdout.strip()
+        xdg_command = ["rifle", file]
+        subprocess.run(xdg_command, encoding="utf-8", capture_output=True)

@@ -14,7 +14,7 @@ def show_tracks(results):
         print(track['id'])
 
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, cache_path="/home/barbarossa/.config/eww/scripts/spotify/show_cache/.cache"))
 
 results = sp.current_user_saved_tracks()
 show_tracks(results)

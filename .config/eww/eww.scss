@@ -29,6 +29,13 @@ button {
     border-radius: 12px;
 }
 
+.bright { 
+    border-width: 3px;
+    border-style: solid;
+    border-color: #3b4252;
+    border-radius: 12px;
+}
+
 //player
 .player {
   background-color: #232831;
@@ -291,7 +298,7 @@ button {
 }
 
 .internet:hover {
-  color: #d08770;
+  color: #5e81ac;
 }
 
 .mail:hover {
@@ -316,7 +323,7 @@ button {
 }
 
 .pomo:hover {
-  color: #5e81ac;
+  color: #d08770;
 }
 
 .notes:hover {

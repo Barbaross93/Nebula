@@ -1,0 +1,10 @@
+#!/bin/sh
+
+windows=($(bspc query -N -n .window.hidden))
+index="$(for i in "${!windows[@]}"; do printf "%s %s\n" $i "$(xdotool getwindowname ${windows[i]})"; done | rofi -dmenu -i -p 'Hidden')" &&
+	if [ "$index" = "" ];
+	then
+		exit 0
+	else
+		bspc node "${windows[${index%% *}]}" -d $(bspc query -D -d); bspc node "${windows[${index%% *}]}" -g hidden=off 
+	fi
