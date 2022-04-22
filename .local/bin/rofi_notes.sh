@@ -3,7 +3,7 @@
 set -u
 set -e
 
-readonly NOTES_FILE=~/.fzf_notes
+readonly NOTES_FILE=~/Documents/quick_notes
 
 if [[ ! -a "${NOTES_FILE}" ]]; then
     echo "empty" >> "${NOTES_FILE}"

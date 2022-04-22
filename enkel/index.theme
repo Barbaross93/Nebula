@@ -1,0 +1,6 @@
+[theme]
+name=enkel
+description=yeah...
+engine=lightdm-webkit2-greeter
+url=index.html
+session=gnome

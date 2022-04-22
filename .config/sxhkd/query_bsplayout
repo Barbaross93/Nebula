@@ -1,8 +1,0 @@
-#!/bin/sh
-
-if pgrep -x bspfloat >/dev/null
-then
-	notify-send -t 3000 -u normal "Current Layout: floating"
-else
-	notify-send -t 3000 -u normal "Current layout: $(bsp-layout get $(bspc query -D -d --names))"	
-fi	

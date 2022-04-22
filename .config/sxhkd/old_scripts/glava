@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if pidof glava
-	then
-	killall glava
-
-	else
-	glava --desktop
-fi

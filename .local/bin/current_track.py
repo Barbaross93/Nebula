@@ -12,9 +12,9 @@ scope = "user-read-currently-playing"
 token = util.prompt_for_user_token(
     username,
     scope,
-    client_id="",
-    client_secret="",
-    redirect_uri="",
+    client_id="3a734da283924fbdb363bdd093fb8450",
+    client_secret="4bd6b5a402444863b1367e57d7bc1f2e",
+    redirect_uri="http://localhost:8888/callback",
 )
 
 spotify = spotipy.Spotify(auth=token)

@@ -1,0 +1,50 @@
+Qtile,,
+^sep()
+State,^checkout(state)
+Move,^checkout(move)
+Orient,^checkout(orient)
+^sep()
+Close,qtile cmd-obj -o window -f kill
+
+^tag(state)
+Floating,qtile cmd-obj -o window -f toggle_floating
+Fullscreen,qtile cmd-obj -o window -f toggle_fullscreen
+Maximize,qtile cmd-obj -o window -f toggle_maximize
+Minimize,qtile cmd-obj -o window -f toggle_minimize
+Unminimize,qtile cmd-obj -o group -f unminimize_all
+
+^tag(move)
+Up,qtile cmd-obj -o layout -f shuffle_up
+Left,qtile cmd-obj -o layout -f shuffle_left
+Right,qtile cmd-obj -o layout -f shuffle_right
+Down,qtile cmd-obj -o layout -f shuffle_down
+To desktop...,^checkout(desktop)
+
+^tag(desktop)
+One,qtile cmd-obj -o window -f togroup -a 
+Two,qtile cmd-obj -o window -f togroup -a 
+Three,qtile cmd-obj -o window -f togroup -a 
+Four,qtile cmd-obj -o window -f togroup -a 
+Five,qtile cmd-obj -o window -f togroup -a 
+Six,qtile cmd-obj -o window -f togroup -a 
+Seven,qtile cmd-obj -o window -f togroup -a 
+Eight,qtile cmd-obj -o window -f togroup -a 
+Nine,qtile cmd-obj -o window -f togroup -a 
+Ten,qtile cmd-obj -o window -f togroup -a 
+
+^tag(orient)
+Layout,^checkout(layout)
+Flip,^checkout(flip)
+^sep()
+Normalize,qtile cmd-obj -o layout -f normalize
+
+^tag(layout)
+Bsp,qtile cmd-obj -o group -f setlayout -a bsp
+Floating,qtile cmd-obj -o group -f setlayout -a floating
+Columns,qtile cmd-obj -o group -f setlayout -a columns
+
+^tag(flip)
+Up,qtile cmd-obj -o layout -f flip_up
+Left,qtile cmd-obj -o layout -f flip_left
+Right,qtile cmd-obj -o layout -f flip_right
+Down,qtile cmd-obj -o layout -f flip_down

@@ -9,7 +9,7 @@ flash-opacity: 0.8
 default-opacity: 1
 
 # Length of flash in milliseconds.
-time: 250
+time: 500
 
 # If true, flashes are not faded out. This will improve performance but flashes
 # won't be smooth.
@@ -35,7 +35,7 @@ flash-fullscreen: true
 #      if another window was just closed.
 #   'on_switch':
 #      Lone windows will be flashed only upon switching desktops.
-flash-lone-windows: 'never'
+flash-lone-windows: 'always'
 
 
 # Defining window-specific flash rules
@@ -50,11 +50,6 @@ flash-lone-windows: 'never'
 #
 # Say I'd like to set all 'termite' windows to 80% opacity but leave other
 # windows at full opacity:
-
-rules:
-  - window-id: dropdown
-    flash-on-focus: False
-
 #
 # rules:
 #   - window-class: Termite

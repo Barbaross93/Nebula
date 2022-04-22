@@ -1,0 +1,11 @@
+#!/bin/sh
+
+STATUS=$(playerctl -p Lollypop status)
+
+if [ "$STATUS" = "Playing" ]; then
+    STATUS=""
+else
+    STATUS=""
+fi
+
+echo "$STATUS"

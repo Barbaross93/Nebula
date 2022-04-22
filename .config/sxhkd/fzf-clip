@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-#echo -n "$(greenclip print | fzf -e -i)" | xclip -selection clipboard
-greenclip print | sed '/^$/d' | fzf --reverse --border --prompt "│ " --pointer "― " -e | xargs -r -d'\n' -I '{}' greenclip print '{}'
-
-#urxvt -name "greenclip" -e zsh -ic \"greenclip print | sed '/^$/d' | fzf --reverse --border=horizontal --no-info --header=' ' --prompt ' │ ' --pointer '― ' -e | xargs -r -d'\n' -I '{}' greenclip print '{}'\""
-

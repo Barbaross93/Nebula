@@ -12,14 +12,16 @@
         PLAYER="spotify"
     elif ps -C spotifyd > /dev/null; then
         PLAYER="spotifyd"
+    elif ps -C mpd > /dev/null; then
+        PLAYER="mpd"
     fi
 
-    if [ "$PLAYER" = "spotify" ] || [ "$PLAYER" = "spotifyd" ]; then
+    if [ "$PLAYER" = "mpd" ] || [ "$PLAYER" = "spotifyd" ]; then
         ARTIST=$(playerctl metadata artist)
         TRACK=$(playerctl metadata title)
         POSITION=$(playerctl position | sed 's/..\{6\}$//')
         DURATION=$(playerctl metadata mpris:length | sed 's/.\{6\}$//')
-        STATUS=$(playerctl -p spotify status)
+        STATUS=$(playerctl -p mpd status)
         SHUFFLE=$(playerctl shuffle)
 
             if [ "$STATUS" = "Playing" ]; then
@@ -35,7 +37,7 @@
             fi
 
         
-        if [ "$PLAYER" = "spotify" ]; then
+        if [ "$PLAYER" = "mpd" ]; then
             printf "$STATUS"
         else
             printf "%s%s %s - %s " "$SEP1" "$STATUS" "$ARTIST" "$TRACK"

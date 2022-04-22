@@ -1,5 +1,5 @@
 [colors]
-	background = "#2e3440"
+    background = "#2e3440"
     frame = "#3b4252"
 	#foreground = "#e5e9f0"
 
@@ -9,14 +9,31 @@
     monitor = 0
     follow = keyboard
 
-    #geometry = "262x5-829-46"
-    #geometry = "262x3-14+46"
-    geometry = "800x4-14+74"    
+    ### Geometry ###
+
+    # dynamic width from 0 to 300
+    # width = (0, 300)
+    # constant width of 300
+    width = (0, 500)
+
+    # The maximum height of a single notification, excluding the frame.
+    height = 300
+
+    # Position the notification in the top right corner
+    origin = top-right
+
+    # Offset from the origin
+    offset = 10x68
+
+    # Scale factor. It is auto-detected if value is 0.
+    scale = 0
+
+    # Maximum number of notification (0 means no limit)
+    notification_limit = 5
+
     indicate_hidden = yes
-    shrink = true
     transparency = 0
-    notification_height = 0
-    separator_height = 2
+    gap_size = 8
     padding = 44
     horizontal_padding = 44
     frame_width = 3
@@ -45,6 +62,7 @@
     # Markup is allowed
     format = "<b>%a</b>\n%s\n%b"
     alignment = left
+    vertical_alignment = center
     show_age_threshold = 60
     word_wrap = true
     ellipsize = middle
@@ -63,7 +81,7 @@
     history_length = 20
 
     ### Misc/Advanced ###
-    dmenu = /usr/bin/urxvt -e fzf:
+    dmenu = /usr/bin/rofi -dmenu:
     browser = /usr/bin/linkhandler
     always_run_script = false
     title = Dunst
@@ -116,19 +134,16 @@
 #    history = ctrl+grave
 
 [urgency_low]
-    background = colors.background
     foreground = "#81a1c1"
     frame_color = "#3b4252"
     timeout = 5
 
 [urgency_normal]
-    background = colors.background
     foreground = "#e5e9f0"
     frame_color = "#3b4252"
     timeout = 5
 
 [urgency_critical]
-    background = colors.background
     foreground = "#bf616a"
     frame_color = "#3b4252"
     timeout = 0

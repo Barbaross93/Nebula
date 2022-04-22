@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-# colorscheme for fzf
-#export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'  --color fg:7,bg:-1,hl:6,fg+:6,bg+:-1,hl+:6 --color info:2,prompt:1,spinner:5,pointer:5,marker:3,header:8'
-
-cat ~/.config/sxhkd/sxhkdrc | awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | rofi -dmenu -i -no-show-icons -p "" -columns 1 -width 1000
-#fzf --reverse --border=horizontal --no-info --header=" " --prompt '? │ ' --pointer '― '

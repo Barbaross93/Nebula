@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "/tmp/spotify/cover.png"
+url=$(playerctl -p Lollypop metadata mpris:artUrl | sed 's|file://||g')
+echo "$url"

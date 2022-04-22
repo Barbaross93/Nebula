@@ -151,3 +151,7 @@ element-icon {
 element.selected {
     border-radius: 8px;
 }
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-bspc query -N -n pointed > /dev/null || jgmenu
-#xqp 0 $(xdo id -N Bspwm -n root) && jgmenu
+xwininfo -tree -id $(xdotool getmouselocation --shell | grep WINDOW | cut -d'=' -f2) | grep xwininfo | grep "(the root window)" && jgmenu
+
+#bspc query -N -n pointed > /dev/null || jgmenu

@@ -1,6 +1,0 @@
-#!/bin/sh
-
-for window in $(bspc query -N -d)
-do
-	bspc node -g hidden=on
-done

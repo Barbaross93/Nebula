@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-color=$(gpick -so 2>/dev/null)
+#color=$(gpick -so 2>/dev/null)
+color=$(xcolor)
 
 if [ -n "$color" ]; then
     random_file=$(mktemp --suffix ".png")

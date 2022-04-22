@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if pgrep -x  bspfloat >/dev/null
-then
-	bspc query -N| xargs -n1 -I '{}' bspc node {} -t tiled
-	killall bspfloat	
-fi

@@ -1,2 +1,0 @@
-#!/bin/sh
-df --output=pcent / | tr -dc '0-9'

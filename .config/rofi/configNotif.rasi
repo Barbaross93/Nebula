@@ -151,3 +151,7 @@ element.selected {
 	border:           0 0 0 5px solid;
 	border-color:	    @winbg;
 }
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
