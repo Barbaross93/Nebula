@@ -30,3 +30,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 
 ### How are you getting space around your qtile bar widgets?
 Thanks to [qtile-extras](https://github.com/elParaguayo/qtile-extras), I use the decoration widget to, well, add decorations to the bar's widgets.
+
+## Scrots
+![main](./Scrots/1650648471.png)
+![second](./Scrots/1650648454.png)
