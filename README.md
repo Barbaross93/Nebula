@@ -1,4 +1,4 @@
-# Nebula
+# Nebula (formerly Genome)
 NOTE: These dots are intended for my setup. If you wish to use them (and feel free to take them and tinker around), you will have to make specific modifications
 for your own machine. I'll do my best to answer questions related to parameters that may need to be changed
 
