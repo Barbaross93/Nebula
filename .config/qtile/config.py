@@ -838,14 +838,6 @@ group_box_settings = {
 # Define functions for bar
 
 
-def taskwarrior():
-    return (
-        subprocess.check_output(["./.config/qtile/task_polybar.sh"])
-        .decode("utf-8")
-        .strip()
-    )
-
-
 def dunst():
     return subprocess.check_output(["./.config/qtile/dunst.sh"]).decode("utf-8").strip()
 
@@ -863,32 +855,16 @@ def open_launcher():
     qtile.cmd_spawn("rofi -show drun")
 
 
-def finish_task():
-    qtile.cmd_spawn('task "$((`cat /tmp/tw_polybar_id`))" done')
-
-
 def kill_window():
     qtile.cmd_spawn("xdotool getwindowfocus windowkill")
-
-
-def update():
-    qtile.cmd_spawn(terminal + "-e yay")
 
 
 def open_pavu():
     qtile.cmd_spawn("pavucontrol")
 
 
-def open_bt_menu():
-    qtile.cmd_spawn("blueberry")
-
-
 def open_powermenu():
     qtile.cmd_spawn("power")
-
-
-def root_menu():
-    qtile.cmd_spawn("./.local/bin/root_menu.sh")
 
 
 screens = [
@@ -951,6 +927,9 @@ screens = [
                     padding=-10,
                     scale=0.40,
                 ),
+                widget.WindowCount(
+                    background=colors[14],
+                ),
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -972,11 +951,15 @@ screens = [
                     padding=0,
                 ),
                 widget.GenPollText(
-                    func=taskwarrior,
-                    update_interval=5,
+                    func=dunst,
+                    update_interval=1,
                     foreground=colors[11],
                     background=colors[14],
-                    mouse_callbacks={"Button1": finish_task},
+                    padding=8,
+                    mouse_callbacks={
+                        "Button1": toggle_dunst,
+                        "Button3": toggle_notif_center,
+                    },
                 ),
                 widget.TextBox(
                     text="",
@@ -1013,37 +996,6 @@ screens = [
                     padding=10,
                     size_percent=50,
                 ),
-                # widget.TextBox(
-                #    text="",
-                #    foreground=colors[14],
-                #    background=colors[0],
-                #    fontsize=28,
-                #    padding=0,
-                # ),
-                # widget.GenPollText(
-                #    func=dunst,
-                #    update_interval=1,
-                #    foreground=colors[11],
-                #    background=colors[14],
-                #    padding=8,
-                #    mouse_callbacks={
-                #        "Button1": toggle_dunst,
-                #        "Button3": toggle_notif_center,
-                #    },
-                # ),
-                # widget.TextBox(
-                #    text="",
-                #    foreground=colors[14],
-                #    background=colors[0],
-                #    fontsize=28,
-                #    padding=0,
-                # ),
-                # widget.Sep(
-                #    linewidth=0,
-                #    foreground=colors[2],
-                #    padding=10,
-                #    size_percent=50,
-                # ),
                 widget.TextBox(
                     text="",
                     foreground=colors[14],
@@ -1199,7 +1151,6 @@ mouse = [
         [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
     ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
-    # Click([], "Button3", root_menu),
 ]
 
 dgroups_key_binder = None

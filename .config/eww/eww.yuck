@@ -35,7 +35,7 @@
           (button :class "editor" :onclick "wmctrl -xa emacs || setsid -f emacs" ""))
         (box :orientation "h" :halign "center" :class "launch2" :space-evenly "false" 
           (button :class "pomo" :onclick "wmctrl -xa io.elementary.calendar|| setsid -f io.elementary.calendar" "")
-          (button :class "notes" :onclick "wmctrl -xa alacritty -e taskwarrior-tui || setsid -f alacritty -e taskwarrior-tui" "")
+          (button :class "notes" :onclick "wmctrl -xa srain || setsid -f srain" "")
           (button :class "rstudio" :onclick "wmctrl -xa Steam || setsid -f steam" "")
           (button :class "slack" :onclick "wmctrl -xa discord || setsid -f discord" "")
           (button :class "terminal" :onclick "setsid -f alacritty" ""))))
