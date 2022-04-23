@@ -1,0 +1,28 @@
+#!/bin/sh
+
+options="⭤ Lock
+↵ Logout
+⏼ Hibernate
+ Reboot
+⏻ Shutdown"
+
+choice=$(echo "$options" | rofi -config ~/.config/rofi/configPower.rasi -dmenu -p "Power")
+
+case "$choice" in
+*Lock*)
+	light-locker-command -l
+	;;
+*Logout*)
+	qtile cmd-obj -o cmd -f shutdown
+	#logout
+	;;
+*Hibernate*)
+	systemctl hibernate
+	;;
+*Reboot*)
+	systemctl reboot
+	;;
+*Shutdown*)
+	poweroff
+	;;
+esac

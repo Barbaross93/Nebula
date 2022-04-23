@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='emacs'
 fi
 
 # Compilation flags
@@ -144,8 +144,8 @@ alias yayinst="yay -Slq | fzf -m --preview 'yay -Si {1}' | xargs -ro sudo yay -S
 alias cat="bat"
 alias pfetch="curl -s https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch | sh"
 alias doom="~/.emacs.d/bin/doom"
-alias vim="TERM=xterm-24bit emacs -nw"
-alias emacs="TERM=xterm-24bit emacs -nw"
+alias vim="emacs -nw"
+alias emacs="emacs -nw"
 #alias vim="nvim"
 #alias navi="navi --fzf-overrides '--reverse  --color fg:7,bg:-1,hl:6,fg+:6,bg+:-1,hl+:6,info:2,prompt:1,spinner:5,pointer:5,marker:3,header:8'"
 alias yay="paru"
