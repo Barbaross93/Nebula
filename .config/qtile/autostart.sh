@@ -22,7 +22,7 @@ flashfocus &
 mkfifo /tmp/vol && echo "$(pulsemixer --get-volume | awk '{print $1}')" > /tmp/vol & 
 mkfifo /tmp/vol-icon && ~/.config/qtile/eww_vol_icon.sh mute &
 redshift-gtk -l 39.2904:-76.6122 &
-lead &
+edges --bottom eww_mouse.sh &
 ~/.config/eww/scripts/getweather &
 barriers --disable-client-cert-checking
 #feh-blur --darken 0 -b 6 &

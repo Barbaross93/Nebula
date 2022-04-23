@@ -575,7 +575,7 @@ keys = [
         [mod],
         "z",
         lazy.spawn(
-            "rofi -show file-browser-extended -file-browser-show-hidden -theme ~/.config/rofi/configTall.rasi -file-browser-cmd 'handlr open'"
+            "rofi -show file-browser-extended -file-browser-show-hidden -theme ~/.config/rofi/configTall.rasi -file-browser-cmd 'xdg-open'"
         ),
         desc="Rofi find files",
     ),
@@ -712,10 +712,9 @@ groups = [
         "scratchpad",
         [
             # define a drop down terminal.
-            # it is placed in the upper third of screen by default.
             DropDown(
                 "term",
-                "alacritty --class dropdown -e tmux_startup.sh",
+                "alacritty --class dropdown -e tmux new -As Dropdown",
                 height=0.6,
                 on_focus_lost_hide=False,
                 opacity=1,
