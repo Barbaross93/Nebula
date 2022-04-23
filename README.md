@@ -10,6 +10,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Bar: Qtile's internal bar
 - Browser: Firefox
   - Startpage: [nightTab](https://github.com/zombieFox/nightTab)
+  - Userchrome: [firefox-nordic-theme](https://github.com/EliverLara/firefox-nordic-theme)
 - Fonts: FiraCode [Nerd Font](https://github.com/ryanoasis/nerd-fonts) for general text and [Font Awesome 6 Free](https://fontawesome.com/) for icons
 - Music: Lollypop
 - Gtk: [Nordic-darker](https://github.com/EliverLara/Nordic)
@@ -18,7 +19,7 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Email: Geary
 - Calendar: Pantheon Calendar
 - Tasks: Taskwarrior
-- Chat: Discord with [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp) and Polari irc client
+- Chat: Discord with [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp) and [srain](https://github.com/SrainApp/srain) irc client
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
 - Notifications: Dunst with scripts for a rofi based notification center (see [here](https://github.com/Barbarossa93/Genome/blob/4a08d3cfd0900807aefaa9f9241a6dbf926c549b/.config/dunst/dunstrc#L77), [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/dunst_logger.sh) and [here](https://github.com/Barbarossa93/Genome/blob/main/.local/bin/rofi_notif_center.sh))
