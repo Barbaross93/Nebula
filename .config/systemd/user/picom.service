@@ -1,0 +1,8 @@
+[Unit]
+Description=Picom
+
+[Service]
+ExecStart=/usr/bin/picom --experimental-backends
+
+[Install]
+WantedBy=default.target

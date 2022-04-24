@@ -1,0 +1,8 @@
+[Unit]
+Description=xbanish
+
+[Service]
+ExecStart=/usr/bin/xbanish
+
+[Install]
+WantedBy=default.target

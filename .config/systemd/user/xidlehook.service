@@ -1,0 +1,8 @@
+[Unit]
+Description=Xidlehook
+
+[Service]
+ExecStart=/usr/bin/xidlehook --not-when-fullscreen --not-when-audio --timer 420 'screensaver' '' --timer 180 'light-locker-command -l' ''
+
+[Install]
+WantedBy=default.target

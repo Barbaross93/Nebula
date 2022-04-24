@@ -1,0 +1,8 @@
+[Unit]
+Description=Barrier Server
+
+[Service]
+ExecStart=/usr/bin/barriers -f --disable-client-cert-checking
+
+[Install]
+WantedBy=default.target

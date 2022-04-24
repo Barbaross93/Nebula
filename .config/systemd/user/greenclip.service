@@ -1,0 +1,8 @@
+[Unit]
+Description=Greenclip Daemon
+
+[Service]
+ExecStart=/usr/bin/greenclip daemon
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Light Locker Daemon
+
+[Service]
+ExecStart=/usr/bin/light-locker
+
+[Install]
+WantedBy=default.target

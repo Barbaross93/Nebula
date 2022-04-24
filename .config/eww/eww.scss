@@ -120,32 +120,32 @@ button {
   margin: 40px 20px 40px 20px;
 }
 .weather-icon-side {
-  font-size: 112px;
+  font-size: 86px;
   font-family: icons;
-  margin: 5px 0px 5px 30px;
+  margin: 30px 0px 5px 30px;
 }
 .weather-stat-side {
-  font-size: 42px;
+  font-size: 36px;
   //padding-top: 10px;
   //padding-bottom: 5px;
   font-weight: bold;
   margin-right: 30px;
+  margin-left: 30px;
   margin-bottom: 25px;
   color: #88c0d0;
 }
-.weather-quote1 {
-  font-size: 26px; 
-  //color: #8fbcbb;
+
+.temp-info {
+  margin-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   margin-right: 30px;
 }
 
 .temperature-side {
   //font-family: icons;
-  font-size: 72px;
+  font-size: 62px;
   font-weight: 900;
-  //margin: 30px;
-  margin-top: 55px;
-  margin-bottom: 40px;
   margin-right: 30px;
   //color: #88c0d0;
 }
@@ -154,9 +154,6 @@ button {
   font-family: icons;
   font-size: 72px;
   font-weight: 900;
-  margin-top: 55px;
-  margin-bottom: 40px;
-  margin-right: 30px;
   color: #d08770;
 }
 

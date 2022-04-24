@@ -1,0 +1,8 @@
+[Unit]
+Description=Flashfocus
+
+[Service]
+ExecStart=/usr/bin/flashfocus
+
+[Install]
+WantedBy=default.target

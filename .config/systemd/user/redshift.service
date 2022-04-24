@@ -1,0 +1,8 @@
+[Unit]
+Description=Redshift
+
+[Service]
+ExecStart=/usr/bin/redshift-gtk -l 39.2904:-76.6122
+
+[Install]
+WantedBy=default.target

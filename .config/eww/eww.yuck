@@ -33,20 +33,18 @@
           (button :class "file" :onclick "setsid -f nautilus" "")
           (button :class "editor" :onclick "wmctrl -xa emacs || setsid -f emacs" ""))
         (box :orientation "h" :halign "center" :class "launch2" :space-evenly "false" 
-          (button :class "pomo" :onclick "wmctrl -xa io.elementary.calendar|| setsid -f io.elementary.calendar" "")
-          (button :class "notes" :onclick "wmctrl -xa srain || setsid -f srain" "")
+          (button :class "pomo" :onclick "wmctrl -xa io.elementary.calendar || setsid -f io.elementary.calendar" "")
+          (button :class "notes" :onclick "wmctrl -xa gtg || setsid -f gtg" "")
           (button :class "rstudio" :onclick "wmctrl -xa Steam || setsid -f steam" "")
           (button :class "slack" :onclick "wmctrl -xa discord || setsid -f discord" "")
           (button :class "terminal" :onclick "setsid -f alacritty" ""))))
-    (defwidget weather [] 
-      (box :orientation "h" :space-evenly "false" :class "weather" 
-        (box :class "weather-icon-side" :style "color: ${weather-hex}" weather-icon)
-        (box :class "weather-info-side" :orientation "v" :space-evenly "false" 
-          (box :class "temp-info" :orientation "h" :halign "center" :space-evenly "false" 
-            (box :class "temperature-side" temperature)
-            (box :class "thermometer" ""))
-          (box :class "weather-stat-side" weather-stat-side)
-          (box :class "weather-quote1" weather-quote))))
+    (defwidget weather []
+        (box :class "weather" :orientation "v" :space-evenly "false" 
+             (box :class "weather-icon-side" :style "color: ${weather-hex}" weather-icon)
+             (box :class "temp-info" :orientation "h" :halign "center" :space-evenly "false"
+                  (box :class "temperature-side" temperature)
+                  (box :class "thermometer" ""))
+             (box :class "weather-stat-side" weather-stat-side)))
     (defwidget vol [] 
       (box :orientation "v" :space-evenly "true" :class "vol" 
         (box :class "vol-icon" vol-icon)
@@ -81,7 +79,7 @@
     (defpoll weather-hex :interval "5s"  "cat /tmp/weather/weather-hex")
     (defpoll temperature :interval "5s"  "cat /tmp/weather/weather-degree")
     (defpoll weather-stat-side :interval "5s"  "~/.config/eww/scripts/weather-trimmer")
-    (defpoll weather-quote :interval "5s"  "~/.config/eww/scripts/getwethquote")
+    ;(defpoll weather-quote :interval "5s"  "~/.config/eww/scripts/getwethquote")
     (defvar pango "&lt;span foreground=\"#d08770\" font_family=\"icons\"&gt;&lt;/span&gt;")
     ;; Vol vars 
     (deflisten vol-icon  "tail -F /tmp/vol-icon")

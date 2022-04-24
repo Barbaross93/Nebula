@@ -1,0 +1,8 @@
+[Unit]
+Description=Edges
+
+[Service]
+ExecStart=/usr/bin/edges --bottom eww_mouse.sh
+
+[Install]
+WantedBy=default.target

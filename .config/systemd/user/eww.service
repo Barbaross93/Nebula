@@ -1,0 +1,8 @@
+[Unit]
+Description=Eww Daemon
+
+[Service]
+ExecStart=/usr/bin/eww --no-daemonize daemon
+
+[Install]
+WantedBy=default.target
