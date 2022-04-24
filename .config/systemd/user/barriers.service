@@ -3,6 +3,8 @@ Description=Barrier Server
 
 [Service]
 ExecStart=/usr/bin/barriers -f --disable-client-cert-checking
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

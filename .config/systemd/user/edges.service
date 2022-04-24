@@ -3,6 +3,8 @@ Description=Edges
 
 [Service]
 ExecStart=/usr/bin/edges --bottom eww_mouse.sh
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

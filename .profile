@@ -107,20 +107,8 @@ export RXVT_SOCKET="/tmp/urxvtd"
 #Move java home
 export _JAVA_OPTIONS=-"Djava.util.prefs.userRoot=${XDG_CONFIG_HOME}/java -Dsun.java2d.opengl=true"
 
-# void changes default fzf dir
-export FZF_BASE=/usr/share/doc/fzf
-
 ### Deprecated (not needed but here for archival reasons)
 # Enable trucolor in lf (needed for proper image previews w/ chafa)
 export TCELL_TRUECOLOR=on
 
-# Sfeed settings
-export SFEED_URL_FILE=~/.config/sfeed/read_sfeed
-#export SFEED_PIPER="w3m -T text/html -cols $(tput cols)" #-dump | urlscan -d"
-export SFEED_PLUMBER_INTERACTIVE=1
-export SFEED_PLUMBER='feed_plumb.sh'
-export SFEED_YANKER="xsel -ib"
-
-# Set notification fifo
-export XNOTIFY_FIFO="/tmp/xnotify.fifo"
-export XNOTIFY_HIST_FIFO="/tmp/xnotify_hist.fifo"
+systemctl --user import-environment

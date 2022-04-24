@@ -3,6 +3,8 @@ Description=Greenclip Daemon
 
 [Service]
 ExecStart=/usr/bin/greenclip daemon
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

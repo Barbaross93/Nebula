@@ -3,6 +3,8 @@ Description=Picom
 
 [Service]
 ExecStart=/usr/bin/picom --experimental-backends
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

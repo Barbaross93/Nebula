@@ -796,7 +796,7 @@ layouts = [
     # layout.Max(**layout_theme),
     # layout.Tile(shift_windows=True, **layout_theme),
     # layout.Stack(num_stacks=2, **layout_theme),
-    layout.Floating(**layout_theme, fullscreen_border_width=3, max_border_width=3),
+    layout.Floating(**layout_theme),
     # Plasma(**layout_theme, border_normal_fixed='#3b4252', border_focus_fixed='#3b4252', border_width_single=3),
 ]
 
@@ -1160,8 +1160,6 @@ bring_front_click = "floating_only"
 cursor_warp = False
 floating_layout = layout.Floating(
     **layout_theme,
-    fullscreen_border_width=3,
-    max_border_width=3,
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,

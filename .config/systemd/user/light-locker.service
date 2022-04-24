@@ -3,6 +3,8 @@ Description=Light Locker Daemon
 
 [Service]
 ExecStart=/usr/bin/light-locker
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

@@ -3,6 +3,8 @@ Description=Eww Daemon
 
 [Service]
 ExecStart=/usr/bin/eww --no-daemonize daemon
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target

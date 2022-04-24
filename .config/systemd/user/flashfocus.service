@@ -3,6 +3,8 @@ Description=Flashfocus
 
 [Service]
 ExecStart=/usr/bin/flashfocus
+Restart=on-failure
+RestartSec=3s
 
 [Install]
 WantedBy=default.target
