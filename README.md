@@ -16,9 +16,6 @@ for your own machine. I'll do my best to answer questions related to parameters 
 - Gtk: [Nordic-darker](https://github.com/EliverLara/Nordic)
 - File manager: Nautilus
 - Editor: [Doom Emacs](https://github.com/hlissner/doom-emacs)
-- Email: Geary
-- Calendar: Pantheon Calendar
-- Tasks: Taskwarrior
 - Chat: Discord with [BetterDiscord](https://github.com/rauenzi/BetterDiscordApp) and [srain](https://github.com/SrainApp/srain) irc client
 - Fetch: Neofetch
 - Widgets: [Eww](https://github.com/elkowar/eww)
