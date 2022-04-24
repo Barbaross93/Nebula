@@ -20,7 +20,7 @@ light-locker &
 xidlehook --not-when-fullscreen --not-when-audio --timer 420 'screensaver' '' --timer 180 'light-locker-command -l' '' &
 flashfocus &
 mkfifo /tmp/vol && echo "$(pulsemixer --get-volume | awk '{print $1}')" > /tmp/vol & 
-mkfifo /tmp/vol-icon && ~/.config/qtile/eww_vol_icon.sh mute &
+mkfifo /tmp/vol-icon && ~/.config/qtile/eww_vol_icon.sh &
 redshift-gtk -l 39.2904:-76.6122 &
 edges --bottom eww_mouse.sh &
 ~/.config/eww/scripts/getweather &

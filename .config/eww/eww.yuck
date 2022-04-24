@@ -1,9 +1,8 @@
 ;-*-Lisp-*-
     (defwidget player []
       (box :orientation "h" :space-evenly "false" :class "player" 
-        (box :class "musicart" :halign "center" :valign "center"
-             (image :path cover :image-width 250 :image-height 250))
-        (box :orientation "v" :class "music-info" :valign "center" :halign "center" :space-evenly "false" 
+        (box :class "musicart" :halign "center" :valign "center" :style "background-image: url('${cover}')")
+        (box :orientation "v" :class "music-info" :valign "center" :halign "center" :space-evenly "false"
           (box :class "musictitle" music3)
           (box :class "musicalbum" music2)
           (box :class "musicartist" music)
@@ -59,13 +58,13 @@
   
   
     ;;  Player vars 
-    (defpoll music :interval "3s"  "playerctl -p Lollypop metadata --format '{{ artist }}'")
-    (defpoll music2 :interval "3s"  "playerctl -p Lollypop metadata --format '{{ album }}'")
-    (defpoll music3 :interval "3s"  "playerctl -p Lollypop metadata --format '{{ title }}'")
-    (defpoll musicstat :interval "1s"  "~/.config/eww/scripts/musicstatus")
-    (defpoll position :interval "3s"  "~/.config/eww/scripts/playerpos")
-    (defpoll duration :interval "2s"  "~/.config/eww/scripts/playerdur")
-    (defpoll cover :interval "1s"  "~/.config/eww/scripts/echoart")
+    (deflisten music "playerctl -F -p Lollypop metadata --format '{{ artist }}'")
+    (deflisten music2 "playerctl -F -p Lollypop metadata --format '{{ album }}'")
+    (deflisten music3 "playerctl -F -p Lollypop metadata --format '{{ title }}'")
+    (deflisten musicstat "~/.config/eww/scripts/musicstatus")
+    (defpoll position :interval "2s"  "playerctl -p Lollypop position | sed 's/..\{6\}$//'")
+    (deflisten duration "playerctl -F -p Lollypop metadata mpris:length | sed 's/.\{6\}$//'")
+    (deflisten cover :initial "/home/barbarossa/.config/eww/images/image.png" "playerctl -F -p Lollypop metadata mpris:artUrl")
     ;; (defpoll art :interval "1s"  "~/.config/eww/scripts/getart || cp ~/.config/eww/images/image.png /tmp/mpd/cover.png")
     ; (defpoll like_status :interval "1s"  "~/.config/eww/scripts/mpd/mpd_to_like_or_not.sh -s")
     ;;  Calendar vars 

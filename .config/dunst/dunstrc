@@ -34,8 +34,8 @@
     indicate_hidden = yes
     transparency = 0
     gap_size = 8
-    padding = 44
-    horizontal_padding = 44
+    padding = 36
+    horizontal_padding = 36
     frame_width = 3
     corner_radius = 12
 

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-playerctl -p Lollypop position | sed 's/..\{6\}$//'

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-playerctl -p Lollypop metadata mpris:length | sed 's/.\{6\}$//'
