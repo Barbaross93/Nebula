@@ -661,9 +661,11 @@ workspaces = [
         ],
         "lay": "bsp",
     },
+    {"name": "", "key": "3", "matches": [], "lay": "bsp"},
+    {"name": "", "key": "4", "matches": [Match(wm_class="emacs")], "lay": "bsp"},
     {
         "name": "",
-        "key": "3",
+        "key": "5",
         "matches": [
             Match(wm_class="joplin"),
             Match(wm_class="libreoffice"),
@@ -671,8 +673,6 @@ workspaces = [
         ],
         "lay": "columns",
     },
-    {"name": "", "key": "4", "matches": [Match(wm_class="emacs")], "lay": "bsp"},
-    {"name": "", "key": "5", "matches": [], "lay": "bsp"},
     {
         "name": "",
         "key": "6",
@@ -787,6 +787,7 @@ layouts = [
         wrap_focus_rows=True,
         wrap_focus_stacks=True,
     ),
+    # Plasma(**layout_theme, border_normal_fixed='#3b4252', border_focus_fixed='#3b4252', border_width_single=3),
     # layout.RatioTile(**layout_theme),
     # layout.VerticalTile(**layout_theme),
     # layout.Matrix(**layout_theme, columns=3),
@@ -797,7 +798,6 @@ layouts = [
     # layout.Tile(shift_windows=True, **layout_theme),
     # layout.Stack(num_stacks=2, **layout_theme),
     layout.Floating(**layout_theme),
-    # Plasma(**layout_theme, border_normal_fixed='#3b4252', border_focus_fixed='#3b4252', border_width_single=3),
 ]
 
 # Setup bar
@@ -896,7 +896,7 @@ screens = [
                 ),
                 widget.GroupBox(
                     font="Font Awesome 6 Free Solid",
-                    visible_groups=["", "", "", "", "", "", "", "", ""],
+                    visible_groups=["", "", "", "", "", "", "", "", ""],
                     **group_box_settings,
                 ),
                 widget.TextBox(

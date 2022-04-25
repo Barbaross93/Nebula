@@ -1,10 +1,10 @@
 #!/bin/sh
 
-options="⭤ Lock
-↵ Logout
-⏼ Hibernate
- Reboot
-⏻ Shutdown"
+options=" Lock
+ Logout
+ Hibernate
+ Reboot
+ Shutdown"
 
 choice=$(echo "$options" | rofi -config ~/.config/rofi/configPower.rasi -dmenu -p "Power")
 

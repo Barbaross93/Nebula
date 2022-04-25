@@ -120,12 +120,12 @@ button {
   margin: 40px 20px 40px 20px;
 }
 .weather-icon-side {
-  font-size: 86px;
+  font-size: 82px;
   font-family: icons;
   margin: 30px 0px 5px 30px;
 }
 .weather-stat-side {
-  font-size: 36px;
+  font-size: 28px;
   //padding-top: 10px;
   //padding-bottom: 5px;
   font-weight: bold;
@@ -136,15 +136,12 @@ button {
 }
 
 .temp-info {
-  margin-left: 30px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  margin-right: 30px;
+  margin: 30px;
 }
 
 .temperature-side {
   //font-family: icons;
-  font-size: 62px;
+  font-size: 52px;
   font-weight: 900;
   margin-right: 30px;
   //color: #88c0d0;
@@ -152,7 +149,7 @@ button {
 
 .thermometer {
   font-family: icons;
-  font-size: 72px;
+  font-size: 52px;
   font-weight: 900;
   color: #d08770;
 }
