@@ -1,12 +1,14 @@
 #!/bin/sh
 
 # Epic gamer mode activate!
-pkill xbanish
+systemctl --user stop xbanish
 dunstctl set-paused true
+systemctl --user stop picom
 
 # Gamer time 😎
 "$@"
 
 # Le epic gamer mode deactivate!
-( xbanish &  )
+systemctl --user start xbanish
 dunstctl set-paused false
+systemctl --user start picom

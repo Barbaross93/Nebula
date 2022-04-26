@@ -44,7 +44,7 @@
              (box :class "temp-info" :orientation "h" :halign "center" :space-evenly "false"
                   (box :class "temperature-side" temperature)
                   (box :class "thermometer" ""))
-             (box :class "weather-stat-side" (label :halign "center" :limit-width "15" :wrap "true" :text weather-stat-side))))
+             (box :class "weather-stat-side" (label :halign "center" :wrap "true" :text weather-stat-side))))
     (defwidget vol [] 
       (box :orientation "v" :space-evenly "true" :class "vol" 
         (box :class "vol-icon" vol-icon)

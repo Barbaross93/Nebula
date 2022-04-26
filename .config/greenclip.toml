@@ -1,0 +1,11 @@
+
+[greenclip]
+  blacklisted_applications = []
+  enable_image_support = true
+  history_file = "/home/barbarossa/.cache/greenclip.history"
+  image_cache_directory = "/tmp/greenclip"
+  max_history_length = 100
+  max_selection_size_bytes = 0
+  static_history = ["Greenclip has been updated to v4.0, update your new config file at ~/.config/greenclip.toml"]
+  trim_space_from_selection = true
+  use_primary_selection_as_input = false

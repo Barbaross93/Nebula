@@ -10,7 +10,8 @@ choice=$(echo "$options" | rofi -config ~/.config/rofi/configPower.rasi -dmenu -
 
 case "$choice" in
 *Lock*)
-	light-locker-command -l
+	lockscreen.sh
+	#light-locker-command -l
 	;;
 *Logout*)
 	qtile cmd-obj -o cmd -f shutdown

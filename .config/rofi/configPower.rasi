@@ -2,7 +2,7 @@ configuration {
 	display-drun:    " Apps";
 	display-window:  "缾 Windows";
 	show-icons:true;
-	font: "monospace 22";
+	font: "icons 22";
 }
 
 @theme "/dev/null"

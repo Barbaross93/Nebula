@@ -452,24 +452,6 @@ keys = [
         lazy.spawn("nautilus"),
         desc="Launch nautilus",
     ),
-    Key(
-        [mod, "shift"],
-        "backslash",
-        lazy.spawn("sh -c 'nautilus `xcwd`'"),
-        desc="Launch nautilus",
-    ),
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.spawn("sh -c 'alacritty --working-directory \"$(xcwd)\"'"),
-        desc="Launch terminal from directory of focused window",
-    ),
-    Key(
-        [mod, "mod1"],
-        "space",
-        lazy.spawn("rofi-task"),
-        desc="Rofi taskwarrior",
-    ),
     Key([mod, "shift"], "m", lazy.spawn("splatmoji copy"), desc="*moji selector"),
     Key(
         [mod],
@@ -564,13 +546,6 @@ keys = [
         [mod], "F5", lazy.spawn("playerctl play-pause"), desc="Toggle play/pause audio"
     ),
     Key([mod], "F6", lazy.spawn("playerctl stop"), desc="Stop audio"),
-    Key([mod], "F11", lazy.spawn("status_notif.sh"), desc="Simple status notification"),
-    Key(
-        [mod],
-        "F12",
-        lazy.spawn("status_notif.sh --full"),
-        desc="Full status notification",
-    ),
     Key(
         [mod],
         "z",

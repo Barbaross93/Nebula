@@ -50,7 +50,7 @@ genbg() {
 }
 
 lock() {
-	i3lock -n -c 00000000 -t -e --date-str="@$(uname -n)" -i ~/Pictures/new_lockscreen.png --date-pos="w/2:h/2+90" \
+	i3lock -n -c 00000000 -e --date-str="@$(uname -n)" -i ~/Pictures/nordspace_lock.png -F --date-pos="w/2:h/2+90" \
         --indicator --force-clock --pass-media-keys --pass-power-keys --pass-volume-keys --date-size=16 \
         --insidever-color=2e3440A8 --insidewrong-color=2e3440A8 --inside-color=2e344000 --ringwrong-color=bf616a \
         --ring-color=81a1c1 --ringver-color=88c0d0 --line-uses-inside --keyhl-color=b48ead --bshl-color=bf616a \

@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-## Non-qtile specific settings
-xset s 0 0
-xset dpms 0 0 0
-xset r rate 440 50
-#xset +fp ~/.fonts/misc/  
-#xsetroot -cursor_name left_ptr &
-#xclickroot -r jgmenu_run &
-numlockx &
-
 playerctld daemon
 blueberry-tray &
 greenclip daemon &
